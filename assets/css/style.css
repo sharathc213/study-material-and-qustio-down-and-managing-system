@@ -3,6 +3,9 @@ body {
   font-family: "Open Sans", sans-serif;
   color: #272829;
 }
+body::-webkit-scrollbar {
+  display: none;
+}
 
 a {
   color: #0563bb;
@@ -290,6 +293,7 @@ h1, h2, h3, h4, h5, h6 {
 section {
   padding: 60px 0;
   overflow: hidden;
+ 
 }
 
 .section-title {
@@ -540,20 +544,21 @@ section {
   font-size: 0.75rem;
 }
 
-input[type="submit"] {
-  border: none;
-  outline: none;
-  color: #fff;
-  background-color: #03a9f4;
-  padding: 0.625rem 1.25rem;
-  cursor: pointer;
-  border-radius: 0.312rem;
-  font-size: 1rem;
+.error_admin,.error_teacher,.error_college{
+  color:red!important;
+  font-size: 14px !important;
 }
 
-input[type="submit"]:hover {
-  background-color: #1cb1f5;
+
+.forgot-pass{
+  color: #ddd;
 }
+.forgot-pass:hover{
+  color:rgb(38, 168, 219);
+}
+
+
+
 
 
 

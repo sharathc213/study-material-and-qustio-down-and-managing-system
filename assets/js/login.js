@@ -40,14 +40,10 @@ function check(which, username, password) {
       which,
     },
     function (data, status) {
-      if (data == "teacher")
-        window.location.replace("http://www.w3schools.com");
-      else if (data == "admin")
-        window.location.replace("http://www.w3schools.com");
-      else if (data == "college")
-        window.location.replace("http://www.w3schools.com");
+      if (data)
+        window.location.replace("http://localhost/studentscorner/"+which+"/pages/index.php?dashboard");
+     
       else $(".error_" + which).html("This user is not Valid");
     }
   );
 }
-

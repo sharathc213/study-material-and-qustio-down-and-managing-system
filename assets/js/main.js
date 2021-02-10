@@ -5,8 +5,15 @@ function display(name) {
   $("li").removeClass("active");
   // add class to the one we clicked
 
+
+
+
   other.addClass("display");
   section.removeClass("display");
+
+    //  var url = window.location.hash;
+    // var id = url.substring(url.lastIndexOf('#') + 1);
+    // console.log(url);
 };
 
 
@@ -26,6 +33,18 @@ function display(name) {
         });
     }
   });
+  
+
+  $(window).on("load", function () {
+    var url = window.location.hash;
+    // var id = url.substring(url.lastIndexOf('#') + 1);
+    // console.log(id);
+    var other = $(document.getElementsByTagName("section"));
+      other.addClass("display");
+  $(url).removeClass("display");
+
+    }
+  );
 
   // Hero typed
   if ($(".typed").length) {

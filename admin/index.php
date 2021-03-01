@@ -24,28 +24,28 @@
         <title>Studentscorner-Admin</title>
 
         <!-- Bootstrap Core CSS -->
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <!-- MetisMenu CSS -->
-        <link href="../css/metisMenu.min.css" rel="stylesheet">
+        <link href="css/metisMenu.min.css" rel="stylesheet">
 
         <!-- Timeline CSS -->
-        <link href="../css/timeline.css" rel="stylesheet">
+        <link href="css/timeline.css" rel="stylesheet">
 
         <!-- Custom CSS -->
-        <link href="../css/startmin.css" rel="stylesheet">
+        <link href="css/startmin.css" rel="stylesheet">
 
         <!-- Morris Charts CSS -->
-        <link href="../css/morris.css" rel="stylesheet">
+        <link href="css/morris.css" rel="stylesheet">
 
         <!-- Custom Fonts -->
-        <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
           <!-- DataTables CSS -->
-          <link href="../css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+          <link href="css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
 
 <!-- DataTables Responsive CSS -->
-<link href="../css/dataTables/dataTables.responsive.css" rel="stylesheet">
+<link href="css/dataTables/dataTables.responsive.css" rel="stylesheet">
 
 
        
@@ -56,16 +56,16 @@
 
             <!-- Navigation -->
             <?php
-            include('./sidebar.php')
+            include('./include/sidebar.php')
             ?>
              
             <div id="page-wrapper">
                 <div class="container-fluid">
                 <?php
               
-                if(isset($_GET['dashboard'])) {include("dashboard.php");}
-                if(isset($_GET['viewcolleages'])) {include("viewcolleages.php");}
-                if(isset($_GET['addcolleages'])) {include("addcolleages.php");}
+           
+                if(isset($_GET['viewcolleages'])) {include("./view/viewcolleages.php");}
+                if(isset($_GET['addcolleages'])) {include("./addcolleages.php");}
                     
             
     
@@ -82,27 +82,27 @@
         <!-- /#wrapper -->
 
         <!-- jQuery -->
-        <script src="../js/jquery.min.js"></script>
+        <script src="./js/jquery.min.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
-        <script src="../js/bootstrap.min.js"></script>
+        <script src="./js/bootstrap.min.js"></script>
 
         <!-- Metis Menu Plugin JavaScript -->
-        <script src="../js/metisMenu.min.js"></script>
+        <script src="./js/metisMenu.min.js"></script>
 
-        <!-- Morris Charts JavaScript -->
-        <script src="../js/raphael.min.js"></script>
-        <script src="../js/morris.min.js"></script>
-        <script src="../js/morris-data.js"></script>
+        Morris Charts JavaScript
+        <script src="./js/raphael.min.js"></script>
+        <script src="./js/morris.min.js"></script>
+        <script src="./js/morris-data.js"></script>
 
   
 
          <!-- DataTables JavaScript -->
-         <script src="../js/dataTables/jquery.dataTables.min.js"></script>
-        <script src="../js/dataTables/dataTables.bootstrap.min.js"></script>
+         <script src="./js/dataTables/jquery.dataTables.min.js"></script>
+        <script src="./js/dataTables/dataTables.bootstrap.min.js"></script>
 
               <!-- Custom Theme JavaScript -->
-              <script src="../js/startmin.js"></script>
+              <script src="./js/startmin.js"></script>
 
         <script>
             $(document).ready(function() {
@@ -111,7 +111,7 @@
                 });
             });
         </script>
-
+    <script src="./insert/insert.js"></script>
     </body>
 </html>
 <?php

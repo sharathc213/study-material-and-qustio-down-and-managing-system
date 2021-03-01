@@ -3,7 +3,7 @@
     session_start();
 
     
-    if(!isset($_SESSION['college'])){
+    if(!isset($_SESSION['college']) && !isset($_SESSION['username'])){
         
         echo "<script>window.open('../../index.php#login','_self')</script>";
         

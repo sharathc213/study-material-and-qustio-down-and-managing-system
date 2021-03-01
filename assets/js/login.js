@@ -41,7 +41,7 @@ function check(which, username, password) {
     },
     function (data, status) {
       if (data)
-        window.location.replace("http://localhost/studentscorner/"+which+"/pages/index.php?dashboard");
+        window.location.replace("http://localhost/studentscorner/"+which+"/index.php?dashboard");
      
       else $(".error_" + which).html("This user is not Valid");
     }

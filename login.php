@@ -17,6 +17,7 @@ include("db.php");
             $rowcount=mysqli_num_rows($result);
             if($rowcount==1){
                 $_SESSION[$which]=$which;
+                $_SESSION['username']=$username;
                 echo true;
             }
             else {echo false;}

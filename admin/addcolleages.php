@@ -62,5 +62,5 @@
         <!-- Custom Theme JavaScript -->
         <script src="../js/startmin.js"></script>
 
-        <script src="addcollege.js"></script>
+        <script src="./insert/insert.js"></script>
 

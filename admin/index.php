@@ -5,10 +5,10 @@
     
     if(!isset($_SESSION['admin'])  || !isset($_SESSION['username'])){
         
-        echo "<script>window.open('../../index.php#login','_self')</script>";
+        echo "<script>window.open('../index.php#login','_self')</script>";
         
     }else{
-        include("../../db.php");
+        include("../db.php");
 
 ?>
 
@@ -48,6 +48,8 @@
 <link href="css/dataTables/dataTables.responsive.css" rel="stylesheet">
 
 
+
+
        
     </head>
     <body>
@@ -64,8 +66,10 @@
                 <?php
               
            
-                if(isset($_GET['viewcolleages'])) {include("./view/viewcolleages.php");}
+                if(isset($_GET['viewcolleages'])) {include("./viewcolleages.php");}
                 if(isset($_GET['addcolleages'])) {include("./addcolleages.php");}
+                if(isset($_GET['viewadmin'])) {include("./viewadmin.php");}
+                if(isset($_GET['addadmin'])) {include("./addadmin.php");}
                     
             
     
@@ -89,17 +93,18 @@
 
         <!-- Metis Menu Plugin JavaScript -->
         <script src="./js/metisMenu.min.js"></script>
-
+<!-- 
         Morris Charts JavaScript
         <script src="./js/raphael.min.js"></script>
         <script src="./js/morris.min.js"></script>
-        <script src="./js/morris-data.js"></script>
+        <script src="./js/morris-data.js"></script> -->
 
   
 
          <!-- DataTables JavaScript -->
          <script src="./js/dataTables/jquery.dataTables.min.js"></script>
         <script src="./js/dataTables/dataTables.bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
               <!-- Custom Theme JavaScript -->
               <script src="./js/startmin.js"></script>
@@ -112,6 +117,8 @@
             });
         </script>
     <script src="./insert/insert.js"></script>
+    <script src="./view/view.js"></script>
+    <script src="./delete/delete.js"></script>
     </body>
 </html>
 <?php

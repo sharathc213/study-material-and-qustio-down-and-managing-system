@@ -6,7 +6,7 @@ include("../../db.php");
 
 
 
-$get_college="select * from college  order by sl_no desc";
+$get_admin="select * from admin  order by sl_no desc";
 
 
 
@@ -18,8 +18,8 @@ $data = '   <div class="table-responsive">
 <thead>
     <tr>
         <th>sl_no</th>
-        <th>College Name</th>
-        <th>College Email</th>
+        <th>admin Name</th>
+        <th>admin Email</th>
         <th>Eddit</th>
         <th>Delete</th>
     </tr>
@@ -30,28 +30,28 @@ $data = '   <div class="table-responsive">
                         
                           
                             
-                            $run_college = mysqli_query($con,$get_college);
+                            $run_admin = mysqli_query($con,$get_admin);
       
-                            while($row_college=mysqli_fetch_array($run_college)){
+                            while($row_admin=mysqli_fetch_array($run_admin)){
                                 
-                                $college_name = $row_college['college_name'];
+                                $admin_name = $row_admin['admin_name'];
                                 
-                                $college_email = $row_college['email'];
+                                $admin_email = $row_admin['email'];
                                 
-                                $sl_no = $row_college['sl_no'];
+                                $sl_no = $row_admin['sl_no'];
                                 
                                 $i++;
         $data .= '
               <tr><!-- tr begin -->
                             <td>  '.$i.' </td>
                            
-                            <td> '.$college_name.'</td>
+                            <td> '.$admin_name.'</td>
                             
-                            <td> '.$college_email.'</td>
+                            <td> '.$admin_email.'</td>
                             
                             <td> 
                                      
-                            <button class="btn-warning" onclick="edditcollege('.$sl_no.')">
+                            <button class="btn-warning" onclick="edditadmin('.$sl_no.')">
                             
                                <i class="fa fa-pencil"></i> Eddit
                            
@@ -60,7 +60,7 @@ $data = '   <div class="table-responsive">
                        </td>
                        <td> 
                                      
-                       <button class="btn-danger" onclick="deletecollege('.$sl_no.')">
+                       <button class="btn-danger" onclick="deleteadmin('.$sl_no.')">
                        
                           <i class="fa fa-trash-o"></i> Delete
                       

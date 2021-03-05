@@ -118,6 +118,18 @@
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
+                                <a href="#"><i class="fa fa-sitemap fa-fw"></i>Admins<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="index.php?addadmin">Add Admins</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.php?viewadmin">View Admins</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
                                 <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
                             </li>
                             <li>
@@ -194,16 +206,3 @@
                 </div>
             </nav>
 
-
-            <script src="../js/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="../js/bootstrap.min.js"></script>
-
-<!-- Metis Menu Plugin JavaScript -->
-<script src="../js/metisMenu.min.js"></script>
-
-<!-- Morris Charts JavaScript -->
-<script src="../js/raphael.min.js"></script>
-<script src="../js/morris.min.js"></script>
-<script src="../js/morris-data.js"></script>

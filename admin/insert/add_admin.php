@@ -2,16 +2,16 @@
 
 
 <?php
-if (isset($_POST['college_code']) && isset($_POST['college_name']) && isset($_POST['college_email'])) {
+if (isset($_POST['admin_name']) && isset($_POST['admin_email'])) {
 
     // include Database connection file 
     include("../../db.php");
 
 
-    $college_code = $_POST['college_code'];
-    $college_name = $_POST['college_name'];
-    $college_email = $_POST['college_email'];
-    // $to_email = $college_email;
+
+    $admin_name = $_POST['admin_name'];
+    $admin_email = $_POST['admin_email'];
+    // $to_email = $admin_email;
     // $subject = "Welcome To StudentCorner";
 
 
@@ -23,13 +23,13 @@ if (isset($_POST['college_code']) && isset($_POST['college_name']) && isset($_PO
     }
     $password = randomPassword();
 
-    $check = "select * from college where college_code = '$college_code' or email='$college_email'";
+    $check = "select * from admin where  email='$admin_email'";
     $result_check = mysqli_query($con, $check);
     if (mysqli_num_rows($result_check) == 0) {
 
 
 
-        $query = "INSERT INTO college(college_code, college_name,email,password) VALUES('$college_code','$college_name','$college_email','$password')";
+        $query = "INSERT INTO admin( admin_name,email,password) VALUES('$admin_name','$admin_email','$password')";
         if (!$result = mysqli_query($con, $query)) {
             exit(mysqli_error());
             echo "some thing is wrong";

@@ -106,13 +106,13 @@
                                 <a href="index.php?dashboard" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fas fa-university"></i> Colleage<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fas fa-university"></i> Teacher<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="index.php?addcolleages">Add colleage</a>
+                                        <a href="index.php?addteacher">Add Teacher</a>
                                     </li>
                                     <li>
-                                        <a href="index.php?viewcolleages">View Colleages</a>
+                                        <a href="index.php?viewteacher">View Teachers</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->

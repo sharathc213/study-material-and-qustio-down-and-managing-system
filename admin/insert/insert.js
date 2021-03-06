@@ -14,30 +14,25 @@ function add_college() {
     $("#college_name_error").html("");
   }
 
-  if(college_email ==""){
+  if (college_email == "") {
     $("#college_email_error").html("**** !Please enter the E-mail  ****");
-}
-    else{
-        
-         var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-  if(regex.test(college_email)) {
-      var check = "ok"
-    $("#college_email_error").html("");
-  }else{
-     $("#college_email_error").html("**** !Please Enter A Valid  E-mail  ****");
-  }
-        
-       
+  } else {
+    var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (regex.test(college_email)) {
+      var check = "ok";
+      $("#college_email_error").html("");
+    } else {
+      $("#college_email_error").html(
+        "**** !Please Enter A Valid  E-mail  ****"
+      );
     }
-
-
-
+  }
 
   if (
     college_code != "" &&
     college_name != "" &&
     college_email != "" &&
-    check =="ok"
+    check == "ok"
   ) {
     $.post(
       "./insert/add_college.php",
@@ -51,7 +46,6 @@ function add_college() {
           $("#college_code").val("");
           $("#college_name").val("");
           $("#college_email").val("");
-
 
           Swal.fire({
             position: "center",
@@ -77,18 +71,9 @@ function add_college() {
   }
 }
 
-
-
-
-
-
-
-
 function add_admin() {
-
   var admin_name = $("#admin_name").val().toUpperCase();
   var admin_email = $("#admin_email").val();
-
 
   if (admin_name == "") {
     $("#admin_name_error").html("Please enter a admin name");
@@ -96,50 +81,80 @@ function add_admin() {
     $("#admin_name_error").html("");
   }
 
-  if(admin_email ==""){
+  if (admin_email == "") {
     $("#admin_email_error").html("**** !Please enter the E-mail  ****");
-}
-    else{
-        
-         var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-  if(regex.test(admin_email)) {
-      var check = "ok"
-    $("#admin_email_error").html("");
-  }else{
-     $("#admin_email_error").html("**** !Please Enter A Valid  E-mail  ****");
-  }
-        
-       
+  } else {
+    var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (regex.test(admin_email)) {
+      var check = "ok";
+      $("#admin_email_error").html("");
+    } else {
+      $("#admin_email_error").html("**** !Please Enter A Valid  E-mail  ****");
     }
+  }
 
-
-
-
-  if (
-    
-    admin_name != "" &&
-    admin_email != "" &&
-    check =="ok"
-  ) {
+  if (admin_name != "" && admin_email != "" && check == "ok") {
     $.post(
       "./insert/add_admin.php",
       {
-        
         admin_name,
         admin_email,
       },
       function (data, status) {
         console.log(data);
         if (data == 111) {
-      
           $("#admin_name").val("");
           $("#admin_email").val("");
-
 
           Swal.fire({
             position: "center",
             icon: "success",
             title: "NEW ADMIN IS ADDED",
+            showConfirmButton: true,
+          });
+        } else if (data == 110) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Duplicate Data Is Fount!",
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
+        }
+      }
+    );
+  }
+}
+
+function add_course_cat() {
+  var cat_name = $("#cat_name").val().toUpperCase();
+
+  if (cat_name == "") {
+    $("#cat_name_error").html("Please enter a Course Cattagory name");
+  } else {
+    $("#cat_name_error").html("");
+  }
+
+  if (cat_name != "") {
+    $.post(
+      "./insert/add_course_cat.php",
+      {
+        cat_name
+      },
+      function (data, status) {
+       
+        if (data == 111) {
+          $("#cat_name").val("");
+          viewcoursecat();
+
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "NEW COURSE CATAGORY IS ADDED",
             showConfirmButton: true,
           });
         } else if (data == 110) {

@@ -70,6 +70,7 @@
                 if(isset($_GET['addcolleages'])) {include("./addcolleages.php");}
                 if(isset($_GET['viewadmin'])) {include("./viewadmin.php");}
                 if(isset($_GET['addadmin'])) {include("./addadmin.php");}
+                if(isset($_GET['addcoursecat'])) {include("./addcoursecat.php");}
                     
             
     

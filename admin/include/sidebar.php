@@ -117,6 +117,7 @@
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
+                            
                             <li>
                                 <a href="#"><i class="fa fa-sitemap fa-fw"></i>Admins<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
@@ -130,7 +131,7 @@
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
+                                <a href="index.php?addcoursecat"><i class="fa fa-table fa-fw"></i>Course Cattogory</a>
                             </li>
                             <li>
                                 <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Forms</a>

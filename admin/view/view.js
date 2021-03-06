@@ -24,3 +24,16 @@ function viewadmin() {
   
   });
 }
+function viewcoursecat() {
+  $.post("view/viewtablecat.php", {
+
+
+  }, function (data, status) {
+    // close the popup
+
+
+    $(".panel-bodya").html(data);
+
+  
+  });
+}

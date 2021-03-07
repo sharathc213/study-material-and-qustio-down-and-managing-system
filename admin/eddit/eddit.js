@@ -385,3 +385,103 @@ function updatecourse(sl_no) {
     });
   }
 }
+
+
+
+function edditsubject(sl_no) {
+  $.post(
+    "eddit/edditsubject.php",
+    {
+      sl_no,
+    },
+    function (data, status) {
+      $(".panel-heading").html("Eddit Subject");
+      $(".panel-body").html(data);
+    }
+  );
+}
+
+
+
+
+
+function updatesubject(sl_no) {
+  // get values
+  var subject_name = $("#update_subject_name").val().toUpperCase();
+  var subject_code = $("#update_subject_code").val().toUpperCase();
+
+  if (subject_name == "") {
+    $("#update_subject_name_error").html("Please enter a subject name");
+  } else {
+    $("#update_subject_name_error").html("");
+  }
+
+  if (subject_code == "") {
+    $("#update_subject_code_error").html("Please enter a subject code");
+  } else {
+    $("#update_subject_code_error").html("");
+  }
+
+  if (subject_name != "" && subject_code != "") {
+    Swal.fire({
+      title: "Are you sure Want to update?",
+
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "red",
+      confirmButtonText: "Yes, Update it!",
+    }).then((result) => {
+      if (result.value) {
+        // Add record
+        $.post(
+          "eddit/update_subject.php",
+          {
+            subject_name,
+            subject_code,
+
+            sl_no,
+          },
+          function (data, status) {
+            console.log(data);
+            // close the popup
+
+            // read records again
+            //   readRecords();
+            //   readdata();
+            //     readstati();
+
+            // clear fields from the popup
+
+            if (data == 111) {
+              $("#update_subject_name").val("");
+              $("#update_subject_code").val("");
+
+              viewsubject();
+
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "UPDATED THIS SELLER",
+                showConfirmButton: true,
+                timer: 3000,
+              });
+            } else if (data == 110) {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Duplicate data is Present!",
+              });
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+              });
+            }
+          }
+        );
+      }
+    });
+  }
+}

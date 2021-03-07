@@ -52,3 +52,19 @@ function viewcourse() {
   
   });
 }
+
+
+
+
+function viewsubject() {
+  $.post("view/viewtablesubject.php", {
+
+
+  }, function (data, status) {
+    // close the popup
+
+    $(".panel-heading").html("view  subject");
+    $(".panel-body").html(data);
+  
+  });
+}

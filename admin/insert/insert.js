@@ -255,3 +255,64 @@ function add_course() {
   }
 }
 
+
+
+
+
+
+
+function add_subject() {
+  var subject_name = $("#subject_name").val().toUpperCase();
+  var subject_code = $("#subject_code").val().toUpperCase();
+
+  if (subject_name == "") {
+    $("#subject_name_error").html("Please enter a subject name");
+  } else {
+    $("#subject_name_error").html("");
+  }
+
+  if (subject_code == "") {
+    $("#subject_code_error").html("**** !Please enter the Subject code  ****");
+  } else {
+
+      $("#subject_code_error").html("");
+    }
+  
+
+  if (subject_name != "" && subject_code != "" ) {
+    $.post(
+      "./insert/add_subject.php",
+      {
+        subject_name,
+        subject_code,
+      },
+      function (data, status) {
+        console.log(data);
+        if (data == 111) {
+          $("#subject_name").val("");
+          $("#subject_code").val("");
+
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "NEW SUBJECT IS ADDED",
+            showConfirmButton: true,
+          });
+        } else if (data == 110) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Duplicate Data Is Fount!",
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
+        }
+      }
+    );
+  }
+
+}

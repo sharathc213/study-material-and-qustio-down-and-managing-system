@@ -73,6 +73,8 @@
                 if(isset($_GET['addcat'])) {include("./addcoursecat.php");}
                 if(isset($_GET['addcourse'])) {include("./addcourse.php");}
                 if(isset($_GET['viewcourse'])) {include("./viewcourse.php");}
+                if(isset($_GET['addsubject'])) {include("./addsubject.php");}
+                if(isset($_GET['viewsubject'])) {include("./viewsubject.php");}
                     
             
     

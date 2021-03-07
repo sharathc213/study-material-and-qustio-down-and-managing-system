@@ -8,7 +8,7 @@ function edditcollege(sl_no) {
     },
     function (data, status) {
       // PARSE json data
-    
+
       $(".panel-heading").html("Eddit college");
       $(".panel-body").html(data);
     }
@@ -16,34 +16,23 @@ function edditcollege(sl_no) {
   // Open modal popup
 }
 
-
-
 function updatecollege(sl_no) {
   // get values
   var college_name = $("#update_college_name").val().toUpperCase();
   var college_code = $("#update_college_code").val().toUpperCase();
 
-
   if (college_code == "") {
-    $("#update_college_code_error").html(
-      "Please enter a College code"
-    );
+    $("#update_college_code_error").html("Please enter a College code");
   } else {
     $("#update_college_code_error").html("");
   }
   if (college_name == "") {
-    $("#update_college_name_error").html(
-      "Please enter a College name"
-    );
+    $("#update_college_name_error").html("Please enter a College name");
   } else {
     $("#update_college_name_error").html("");
   }
 
-  if (
-    college_name != "" &&
-    college_code != ""
-
-  ) {
+  if (college_name != "" && college_code != "") {
     Swal.fire({
       title: "Are you sure Want to update?",
 
@@ -58,9 +47,9 @@ function updatecollege(sl_no) {
         $.post(
           "eddit/update_college.php",
           {
-            college_name ,
+            college_name,
             college_code,
-            sl_no 
+            sl_no,
           },
           function (data, status) {
             console.log(data);
@@ -77,7 +66,6 @@ function updatecollege(sl_no) {
               $("#update_college_name").val("");
               $("#update_college_code").val("");
               $("#update_college_email").val("");
-        
 
               viewcollege();
 
@@ -113,13 +101,6 @@ function updatecollege(sl_no) {
   //  }
 }
 
-
-
-
-
-
-
-
 function edditadmin(sl_no) {
   // Add User ID to the hidden field for furture usage
 
@@ -130,7 +111,7 @@ function edditadmin(sl_no) {
     },
     function (data, status) {
       // PARSE json data
-    
+
       $(".panel-heading").html("Eddit admin");
       $(".panel-body").html(data);
     }
@@ -138,27 +119,17 @@ function edditadmin(sl_no) {
   // Open modal popup
 }
 
-
-
 function updateadmin(sl_no) {
   // get values
   var admin_name = $("#update_admin_name").val().toUpperCase();
 
-
-
-
   if (admin_name == "") {
-    $("#update_admin_name_error").html(
-      "Please enter a admin name"
-    );
+    $("#update_admin_name_error").html("Please enter a admin name");
   } else {
     $("#update_admin_name_error").html("");
   }
 
-  if (
-    admin_name != "" 
-
-  ) {
+  if (admin_name != "") {
     Swal.fire({
       title: "Are you sure Want to update?",
 
@@ -173,9 +144,9 @@ function updateadmin(sl_no) {
         $.post(
           "eddit/update_admin.php",
           {
-            admin_name ,
-         
-            sl_no 
+            admin_name,
+
+            sl_no,
           },
           function (data, status) {
             console.log(data);
@@ -191,8 +162,6 @@ function updateadmin(sl_no) {
             if (data == 111) {
               $("#update_admin_name").val("");
               $("#update_admin_code").val("");
-           
-        
 
               viewadmin();
 
@@ -221,48 +190,32 @@ function updateadmin(sl_no) {
       }
     });
   }
-
 }
 
-
-
-
 function edditcoursecat(cat_code) {
-
   $.post(
     "eddit/edditcoursecat.php",
     {
-      cat_code
+      cat_code,
     },
     function (data, status) {
-    
       $(".panel-heading").html("Eddit Course Catogory");
       $(".updatecat").html(data);
     }
   );
 }
 
-
-
 function updatecat(cat_code) {
   // get values
   var cat_name = $("#update_course_cat_name").val().toUpperCase();
 
-
-
-
   if (cat_name == "") {
-    $("#update_course_cat_name").html(
-      "Please enter a cattogory name"
-    );
+    $("#update_course_cat_name").html("Please enter a cattogory name");
   } else {
     $("#update_course_cat_name_error").html("");
   }
 
-  if (
-    cat_name != "" 
-
-  ) {
+  if (cat_name != "") {
     Swal.fire({
       title: "Are you sure Want to update?",
 
@@ -277,10 +230,8 @@ function updatecat(cat_code) {
         $.post(
           "eddit/update_cat.php",
           {
-            cat_name ,
-            cat_code
-         
-          
+            cat_name,
+            cat_code,
           },
           function (data, status) {
             console.log(data);
@@ -295,9 +246,6 @@ function updatecat(cat_code) {
 
             if (data == 111) {
               $("#update_course_cat_name").val("");
-           
-           
-        
 
               viewcoursecat();
 
@@ -333,4 +281,107 @@ function updatecat(cat_code) {
   //  }
 }
 
+function edditcourse(sl_no) {
+  $.post(
+    "eddit/edditcourse.php",
+    {
+      sl_no,
+    },
+    function (data, status) {
+      $(".panel-heading").html("Eddit Course");
+      $(".panel-body").html(data);
+    }
+  );
+}
 
+function updatecourse(sl_no) {
+  // get values
+  var course_name = $("#update_course_name").val().toUpperCase();
+  var course_code = $("#update_course_code").val().toUpperCase();
+  var course_year = $("#update_course_year").val();
+  var course_cat = $("#update_course_cat").val();
+
+  if (course_name == "") {
+    $("#update_course_name_error").html("Please enter a course name");
+  } else {
+    $("#update_course_name_error").html("");
+  }
+  if (course_code == "") {
+    $("#update_course_code_error").html("Please enter a course Code");
+  } else {
+    $("#update_course_code_error").html("");
+  }
+  if (course_year == "") {
+    $("#update_course_name_error").html("Please enter a course name");
+  } else {
+    $("#update_course_year_error").html("");
+  }
+
+
+  if 
+    (course_name != "" && course_code != "" && course_year != "" && course_cat != "")
+   {
+    Swal.fire({
+      title: "Are you sure Want to update?",
+
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "red",
+      confirmButtonText: "Yes, Update it!",
+    }).then((result) => {
+      if (result.value) {
+        // Add record
+        $.post(
+          "eddit/update_course.php",
+          {
+            course_name,
+            course_code,
+            course_year,
+            course_cat,
+
+            sl_no
+          },
+          function (data, status) {
+            console.log(data);
+            // close the popup
+
+            // read records again
+            //   readRecords();
+            //   readdata();
+            //     readstati();
+
+            // clear fields from the popup
+
+            if (data == 111) {
+              $("#update_course_name").val("");
+              $("#update_course_code").val("");
+
+              viewcourse();
+
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "UPDATED THIS SELLER",
+                showConfirmButton: true,
+                timer: 3000,
+              });
+            } else if (data == 110) {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Duplicate data is Present!",
+              });
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+              });
+            }
+          }
+        );
+      }
+    });
+  }
+}

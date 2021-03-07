@@ -37,3 +37,18 @@ function viewcoursecat() {
   
   });
 }
+
+
+
+function viewcourse() {
+  $.post("view/viewtablecourse.php", {
+
+
+  }, function (data, status) {
+    // close the popup
+
+    $(".panel-heading").html("view course");
+    $(".panel-body").html(data);
+  
+  });
+}

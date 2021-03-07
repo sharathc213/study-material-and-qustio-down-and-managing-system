@@ -174,3 +174,84 @@ function add_course_cat() {
     );
   }
 }
+
+
+
+
+
+
+
+function add_course() {
+  var course_cat = $("#course_cat").val();
+  var course_name = $("#course_name").val().toUpperCase();
+  var course_year = $("#course_year").val();
+  var course_code = $("#course_code").val().toUpperCase();
+
+  if (course_name == "") {
+    $("#course_name_error").html("Please enter a Course name");
+  } else {
+    $("#course_name_error").html("");
+  }
+
+  if (course_cat == "" || course_cat == null) {
+    $("#course_cat_error").html("Please Select a Course Catagory name");
+  } else {
+    $("#course_cat_error").html("");
+  }
+
+  if (course_year == "" || course_year == null) {
+    $("#course_year_error").html("Please Select  Course Duration name");
+  } else {
+    $("#course_year_error").html("");
+  }
+
+  if (course_code == "" ) {
+    $("#course_code_error").html("Please Enter a  Course Code");
+  } else {
+    $("#course_code_error").html("");
+  }
+
+
+  if (course_name != "" && course_cat != "" && course_year != "" && course_code != "" && course_year != null && course_cat!= null) {
+    $.post(
+      "./insert/add_course.php",
+      {
+        course_name,
+        course_code,
+        course_year,
+        course_cat
+      },
+      function (data, status) {
+        console.log(data);
+       
+        if (data == 111) {
+          $("#course_name").val("");
+          $("#course_code").val("");
+          $("#course_year").prop('selectedIndex',0);
+          $("#course_cat").prop('selectedIndex',0);
+        
+
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "NEW COURSE  IS ADDED",
+            showConfirmButton: true,
+          });
+        } else if (data == 110) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Duplicate Data Is Fount!",
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
+        }
+      }
+    );
+  }
+}
+

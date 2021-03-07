@@ -119,7 +119,7 @@
                             </li>
                             
                             <li>
-                                <a href="#"><i class="fa fa-sitemap fa-fw"></i>Admins<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-user-plus fa-fw"></i>Admins<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                         <a href="index.php?addadmin">Add Admins</a>
@@ -146,13 +146,26 @@
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-sitemap fa-fw"></i>Subject<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-book fa-fw"></i>Subject<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                         <a href="index.php?addsubject">Add Subject</a>
                                     </li>
                                     <li>
                                         <a href="index.php?viewsubject">View Subject</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+
+                            <li>
+                                <a href="#"><i class="fa  fa-file-code-o fa-fw"></i>File<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="index.php?addfile">Add File Type</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.php?viewfile">View File Types</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->

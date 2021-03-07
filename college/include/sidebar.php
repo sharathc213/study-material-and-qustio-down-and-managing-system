@@ -106,7 +106,7 @@
                                 <a href="index.php?dashboard" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
                             <li>
-                                <a href="#"><i class="fa fas fa-university"></i> Teacher<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fas fa-users"></i> Teacher<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                         <a href="index.php?addteacher">Add Teacher</a>

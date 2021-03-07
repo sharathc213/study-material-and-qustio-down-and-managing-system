@@ -316,3 +316,62 @@ function add_subject() {
   }
 
 }
+
+
+
+function add_file() {
+  var file_name = $("#file_type").val().toUpperCase();
+  var file_size = $("#file_size").val();
+
+  if (file_name == "") {
+    $("#file_type_error").html("Please enter a file Format");
+  } else {
+    $("#file_type_error").html("");
+  }
+
+  if (file_size == "" || file_size == 0) {
+    $("#file_size_error").html("**** !Please enter the Max File size or >0  ****");
+  } else {
+
+      $("#file_size_error").html("");
+    }
+  
+
+  if (file_name != "" && file_size != "" && file_size !=0) {
+    $.post(
+      "./insert/add_file.php",
+      {
+        file_name,
+        file_size,
+      },
+      function (data, status) {
+        console.log(data);
+        if (data == 111) {
+          $("#file_type").val("");
+          $("#file_size").val("");
+
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "NEW FILE TYPE IS ADDED",
+            showConfirmButton: true,
+          });
+        } else if (data == 110) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Duplicate Data Is Fount!",
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
+        }
+      }
+    );
+  }
+
+}
+

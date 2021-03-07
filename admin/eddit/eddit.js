@@ -485,3 +485,100 @@ function updatesubject(sl_no) {
     });
   }
 }
+
+
+
+function edditfile(sl_no) {
+  $.post(
+    "eddit/edditfile.php",
+    {
+      sl_no,
+    },
+    function (data, status) {
+      $(".panel-heading").html("Eddit File Format");
+      $(".panel-body").html(data);
+    }
+  );
+}
+
+
+function updatefile(sl_no) {
+  // get values
+  var file_name = $("#update_file_name").val().toUpperCase();
+  var file_size = $("#update_file_size").val();
+
+  if (file_name == "") {
+    $("#update_file_name_error").html("Please enter a file name");
+  } else {
+    $("#update_file_name_error").html("");
+  }
+
+  if (file_size == "" || file_size==0) {
+    $("#update_file_size_error").html("Please enter a maz file size");
+  } else {
+    $("#update_file_size_error").html("");
+  }
+
+  if (file_name != "" && file_size !=  "" && file_size!=0){
+    Swal.fire({
+      title: "Are you sure Want to update?",
+
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "red",
+      confirmButtonText: "Yes, Update it!",
+    }).then((result) => {
+      if (result.value) {
+        // Add record
+        $.post(
+          "eddit/update_file.php",
+          {
+            file_name,
+            file_size,
+
+            sl_no
+          },
+          function (data, status) {
+            console.log(data);
+            // close the popup
+
+            // read records again
+            //   readRecords();
+            //   readdata();
+            //     readstati();
+
+            // clear fields from the popup
+
+            if (data == 111) {
+              $("#update_file_name").val("");
+              $("#update_file_size").val("");
+
+              viewfile();
+
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "UPDATED THIS SELLER",
+                showConfirmButton: true,
+                timer: 3000,
+              });
+            } else if (data == 110) {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Duplicate data is Present!",
+              });
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+              });
+            }
+          }
+        );
+      }
+    });
+  }
+}

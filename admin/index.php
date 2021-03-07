@@ -75,6 +75,8 @@
                 if(isset($_GET['viewcourse'])) {include("./viewcourse.php");}
                 if(isset($_GET['addsubject'])) {include("./addsubject.php");}
                 if(isset($_GET['viewsubject'])) {include("./viewsubject.php");}
+                if(isset($_GET['addfile'])) {include("./addfile.php");}
+                if(isset($_GET['viewfile'])) {include("./viewfile.php");}
                     
             
     

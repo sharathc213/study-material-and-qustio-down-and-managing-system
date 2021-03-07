@@ -68,3 +68,19 @@ function viewsubject() {
   
   });
 }
+
+
+
+
+function viewfile() {
+  $.post("view/viewtablefile.php", {
+
+
+  }, function (data, status) {
+    // close the popup
+
+    $(".panel-heading").html("view File Format");
+    $(".panel-body").html(data);
+  
+  });
+}

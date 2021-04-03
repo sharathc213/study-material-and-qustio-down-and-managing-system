@@ -6,7 +6,7 @@ include("../../db.php");
 
 
 
-$get_college="select * from college  order by sl_no desc";
+$get_qustion="select * from qustion  order by sl_no desc";
 
 
 
@@ -18,9 +18,9 @@ $data = '   <div class="table-responsive">
 <thead>
     <tr>
         <th>sl_no</th>
-        <th>College Code</th>
-        <th>College Name</th>
-        <th>College Email</th>
+        <th>subject</th>
+        <th>Year</th>
+     
         <th>Eddit</th>
         <th>Delete</th>
     </tr>
@@ -31,30 +31,37 @@ $data = '   <div class="table-responsive">
                         
                           
                             
-                            $run_college = mysqli_query($con,$get_college);
+                            $run_qustion = mysqli_query($con,$get_qustion);
       
-                            while($row_college=mysqli_fetch_array($run_college)){
+                            while($row_qustion=mysqli_fetch_array($run_qustion)){
                                 
-                                $college_name = $row_college['college_name'];
+                                $sub_code = $row_qustion['subject_code'];
                                 
-                                $college_email = $row_college['email'];
+                                $date = $row_qustion['date'];
                                 
-                                $sl_no = $row_college['sl_no'];
-                                $college_code = $row_college['college_code'];
+                                $sl_no = $row_qustion['sl_no'];
+
+
+                             
+                                $get_sub="select * from subject where subject_code='$sub_code'";
+                                $run_sub= mysqli_query($con,$get_sub);
+                                $row_sub=mysqli_fetch_array($run_sub);
+                                $sub_name = $row_sub['subject_name'];
+                              
                                 
                                 $i++;
         $data .= '
               <tr><!-- tr begin -->
                             <td>  '.$i.' </td>
-                            <td> '.$college_code.'</td>
+                            <td> '.$sub_name.'</td>
                            
-                            <td> '.$college_name.'</td>
+                            <td> '.$date.'</td>
                             
-                            <td> '.$college_email.'</td>
+                      
                             
                             <td> 
                                      
-                            <button class="btn-warning" onclick="edditcollege('.$sl_no.')">
+                            <button class="btn-warning" onclick="edditqustion('.$sl_no.')">
                             
                                <i class="fa fa-pencil"></i> Eddit
                            
@@ -63,7 +70,7 @@ $data = '   <div class="table-responsive">
                        </td>
                        <td> 
                                      
-                       <button class="btn-danger" onclick="deletecollege('.$sl_no.')">
+                       <button class="btn-danger" onclick="deletequstion('.$sl_no.')">
                        
                           <i class="fa fa-trash-o"></i> Delete
                       

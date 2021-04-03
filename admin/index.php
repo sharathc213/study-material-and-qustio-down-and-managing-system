@@ -77,6 +77,12 @@
                 if(isset($_GET['viewsubject'])) {include("./viewsubject.php");}
                 if(isset($_GET['addfile'])) {include("./addfile.php");}
                 if(isset($_GET['viewfile'])) {include("./viewfile.php");}
+                if(isset($_GET['addbooks'])) {include("./addbook.php");}
+                if(isset($_GET['viewbooks'])) {include("./viewbook.php");}
+                if(isset($_GET['addquestion'])) {include("./addquestion.php");}
+                if(isset($_GET['viewquestion'])) {include("./viewquestion.php");}
+                if(isset($_GET['addsubc'])) {include("./addsubc.php");}
+                if(isset($_GET['viewsubc'])) {include("./viewsubc.php");}
                     
             
     
@@ -126,6 +132,7 @@
     <script src="./insert/insert.js"></script>
     <script src="./view/view.js"></script>
     <script src="./delete/delete.js"></script>
+    <script src="./others/other.js"></script>
     </body>
 </html>
 <?php

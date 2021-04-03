@@ -66,10 +66,10 @@ $sl_no=$_POST['sl_no'];
     <label>course Duration</label>
     <select name="update_course_year" class="form-control" id="update_course_year">
         <option value="'.$course_year.'" selected >'.$course_year.' Year</option>
-        <option value="1">1 Year</option>
+        
         <option value="2">2 Year</option>
         <option value="3">3 Year</option>
-        <option value="4">4 Year</option>
+        
     </select>
     <span class="help-block" id="update_course_year_error"></span>
 </div>

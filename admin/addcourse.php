@@ -51,10 +51,10 @@
                                 <label>course Duration</label>
                                 <select name="course_year" class="form-control" id="course_year">
                                     <option selected disabled>Please Select the Course Duration</option>
-                                    <option value="1">1 Year</option>
+                                   
                                     <option value="2">2 Year</option>
                                     <option value="3">3 Year</option>
-                                    <option value="4">4 Year</option>
+                                    
                                 </select>
                                 <span class="help-block" id="course_year_error"></span>
                             </div>

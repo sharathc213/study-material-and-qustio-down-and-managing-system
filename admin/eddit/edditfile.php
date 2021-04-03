@@ -23,7 +23,7 @@ $sl_no=$_POST['sl_no'];
     <form role="form">
     <div class="form-group">
         <label>file Format</label>
-        <input class="form-control" id="update_file_name" style="text-transform:uppercase"  value="'.$file_name.'">
+        <input class="form-control" id="update_file_name" disabled style="text-transform:uppercase"  value="'.$file_name.'">
         <p class="help-block"  id="update_file_name_error"></p>
     </div>
     <div class="form-group" >

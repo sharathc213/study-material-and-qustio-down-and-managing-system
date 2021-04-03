@@ -2,34 +2,35 @@
 
 
 <?php
-if (isset($_POST['admin_name']) && isset($_POST['admin_email'])) {
+
+
+if (isset($_POST['sub_code']) && isset($_POST['book_name']) && isset($_FILES['file']['name'])) {
+  
 
     // include Database connection file 
     include("../../db.php");
 
 
-
-    $admin_name = $_POST['admin_name'];
-    $admin_email = $_POST['admin_email'];
-    // $to_email = $admin_email;
+    $sub_code = $_POST['sub_code'];
+    $book_name = $_POST['book_name'];
+    $fileName = $_FILES['file']['name'];
+         $target = "../files/books/";		
+		$fileTarget = $target.$fileName;	
+		$tempFileName = $_FILES["file"]["tmp_name"];	
+		$result1 = move_uploaded_file($tempFileName,$fileTarget);
+    if($result1){
+       
+        // echo  $fileTarget;to_email = $college_email;
     // $subject = "Welcome To StudentCorner";
 
 
-    function randomPassword()
-    {
-        $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-=+;:,.?";
-        $password = substr(str_shuffle($chars), 0, 8);
-        return $password;
-    }
-    $password = randomPassword();
-
-    $check = "select * from admin where  email='$admin_email'";
+    $check = "select * from book where book_name='$book_name'";
     $result_check = mysqli_query($con, $check);
     if (mysqli_num_rows($result_check) == 0) {
 
 
 
-        $query = "INSERT INTO admin( admin_name,email,password) VALUES('$admin_name','$admin_email','$password')";
+        $query = "INSERT INTO book(subject_code, book_name,location) VALUES('$sub_code','$book_name','$fileTarget')";
         if (!$result = mysqli_query($con, $query)) {
             exit(mysqli_error());
             echo "some thing is wrong";
@@ -48,5 +49,6 @@ if (isset($_POST['admin_name']) && isset($_POST['admin_email'])) {
     } else {
         echo 110;
     }
+}
 }
 ?>

@@ -12,14 +12,15 @@ function viewteacher(college_code) {
 }
 
 
-function viewadmin() {
-  $.post("view/viewtableadmin.php", {
 
+function viewcourse(college_code) {
+  $.post("view/viewtablecourse.php", {
 
+    college_code
   }, function (data, status) {
-    // close the popup
+   
 
-    $(".panel-heading").html("view  admin");
+    $(".panel-heading").html("view  course");
     $(".panel-body").html(data);
   
   });

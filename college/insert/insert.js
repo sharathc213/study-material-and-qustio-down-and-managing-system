@@ -156,3 +156,176 @@ function add_admin() {
     );
   }
 }
+
+
+
+
+function add_course(course_year,college_code,course_code) {
+
+
+
+console.log(course_code); 
+var sem1_1=$("#sem1_1").val();
+var sem1_2=$("#sem1_2").val();
+var sem1_3=$("#sem1_3").val();
+var sem1_4=$("#sem1_4").val();
+var sem1_5=$("#sem1_5").val();
+
+var sem2_1=$("#sem2_1").val();
+var sem2_2=$("#sem2_2").val();
+var sem2_3=$("#sem2_3").val();
+var sem2_4=$("#sem2_4").val();
+var sem2_5=$("#sem2_5").val();
+
+if(course_year>=2){
+var sem3_1=$("#sem3_1").val();
+var sem3_2=$("#sem3_2").val();
+var sem3_3=$("#sem3_3").val();
+var sem3_4=$("#sem3_4").val();
+var sem3_5=$("#sem3_5").val();
+
+var sem4_1=$("#sem4_1").val();
+var sem4_2=$("#sem4_2").val();
+var sem4_3=$("#sem4_3").val();
+var sem4_4=$("#sem4_4").val();
+var sem4_5=$("#sem4_5").val();
+}
+
+if(course_year>=3){
+  var sem5_1=$("#sem5_1").val();
+  var sem5_2=$("#sem5_2").val();
+  var sem5_3=$("#sem5_3").val();
+  var sem5_4=$("#sem5_4").val();
+  var sem5_5=$("#sem5_5").val();
+  
+  var sem6_1=$("#sem6_1").val();
+  var sem6_2=$("#sem6_2").val();
+  var sem6_3=$("#sem6_3").val();
+  var sem6_4=$("#sem6_4").val();
+  var sem6_5=$("#sem6_5").val();
+  }
+
+var i;
+var k;
+var j = course_year * 2;
+
+for (i=1; i <=j; i++) {
+ 
+  for (k=1; k <=5; k++) {
+  var check=$("#sem"+i+"_"+k).val();
+  if (check == "" || check == null) {
+    $("#sem"+i+"_"+k+"_error").html("Please select a subject");
+  } else {
+    $("#sem"+i+"_"+k+"_error").html("");
+  }
+  }
+}
+
+ j = course_year * 2;
+var validate=1;
+var br=0;
+for (i=1; i <=j; i++) {
+  if(br==0){
+ 
+  for (k=1; k <=5; k++) {
+   check=$("#sem"+i+"_"+k).val();
+  if (check == "" || check == null) {
+    validate=1;
+    br=1;
+    break;
+    
+  } else {
+    validate=0;
+  }
+  }}else{
+    break;
+  }
+}
+
+  if (
+     
+  validate!=1
+  ) {
+    $.post(
+      "./insert/add_course.php",
+      {
+        
+        college_code,
+        course_code,
+        course_year,
+
+        sem1_1,
+        sem1_2,
+        sem1_3,
+        sem1_4,
+        sem1_5,
+        
+        sem2_1,
+        sem2_2,
+        sem2_3,
+        sem2_4,
+        sem2_5,
+
+        sem3_1,
+        sem3_2,
+        sem3_3,
+        sem3_4,
+        sem3_5,
+
+        sem4_1,
+        sem4_2,
+        sem4_3,
+        sem4_4,
+        sem4_5,
+
+        sem5_1,
+        sem5_2,
+        sem5_3,
+        sem5_4,
+        sem5_5,
+
+        sem6_1,
+        sem6_2,
+        sem6_3,
+        sem6_4,
+        sem6_5
+      },
+      function (data, status) {
+        console.log(data);
+        if (data == 111) {
+      
+          for (i=1; i <=j; i++) {
+ 
+            for (k=1; k <=5; k++) {
+            
+              $("#sem"+i+"_"+k).prop('selectedIndex',0);
+              $("#sem"+i+"_"+k+"_error").html("");
+            
+            }
+            }
+          
+
+
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "NEW ADMIN IS ADDED",
+            showConfirmButton: true,
+          });
+        } else if (data == 110) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Duplicate Data Is Fount!",
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
+        }
+      }
+    );
+  }
+}

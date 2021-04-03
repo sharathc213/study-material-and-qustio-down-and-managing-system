@@ -582,3 +582,165 @@ function updatefile(sl_no) {
     });
   }
 }
+
+
+
+function edditbook(sl_no) {
+
+  $.post(
+    "eddit/edditbook.php",
+    {
+      sl_no
+    },
+    function (data, status) {
+     
+      $(".panel-heading").html("Eddit Book");
+      $(".panel-body").html(data);
+    }
+  );
+}
+
+
+
+
+
+
+function updatebook(sl_no) {
+ 
+  // get values
+  var name = $("#update_book").val();
+  var book = $("#update_book").prop("files")[0];
+  var book_name = $("#update_book_name").val().toUpperCase();
+  var sub_code = $("#update_sub_code").val();
+  var fil=$("#fil").html();
+  var form_data = new FormData();
+  form_data.append("file", book);
+  form_data.append("sl_no", sl_no);
+
+  var ext= name.split('.').pop().toLowerCase();
+  let validate;
+ 
+  if (sub_code == "" || sub_code == null) {
+    $("#update_sub_code_error").html("please select a subject");
+    validate=1;
+
+  } else {
+    $("#update_sub_code_error").html("");
+    validate=0;
+    form_data.append("sub_code", sub_code);
+  }
+
+
+
+  if (book_name == "") {
+    $("#update_book_name_error").html("Please enter the book name");
+    validate=1;
+  } else {
+    $("#update_book_name_error").html("");
+    validate=0;
+    form_data.append("book_name", book_name);
+  }
+
+  if (fil == "") {
+    $("#update_book_error").html("Please Select a book ");
+     validate =1;
+    
+ }else{
+  $("#update_book_error").html("");
+  validate =0;
+ }
+ if(name!=""){ 
+   if ($.inArray(ext, ["pdf"]) == -1) {
+    $("#update_book_error").html("Only pdf file is allowed");
+    validate =1;
+  } else if(($("#update_book")[0].files[0].size)>2000000){
+    validate =1;
+    $("#update_book_error").html("file must lessthan 2MB");
+  } else{
+    $("#update_book_error").html("");
+  validate=0;
+  }
+}
+
+
+  if ( validate==0){
+
+    Swal.fire({
+      title: "Are you sure Want to update?",
+
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "red",
+      confirmButtonText: "Yes, Update it!",
+    }).then((result) => {
+      if (result.value) {
+        // Add record
+        $.ajax({
+          url: './eddit/update_book.php', 
+          type: 'post',
+          data: form_data,
+          dataType: 'text',
+          contentType: false,
+          processData: false,
+          success: function (data) {
+            console.log(data);
+            // close the popup
+      //   readdata();
+            //     readstati();
+
+            // clear fields from the popup
+
+            if (data == 111) {
+              $("#update_book_name").val("");
+              $("#fil").html("");
+
+              viewbooks();
+
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "UPDATED THIS SELLER",
+                showConfirmButton: true,
+                timer: 3000,
+              });
+            } else if (data == 110) {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Duplicate data is Present!",
+              });
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+              });
+            }
+          }
+        }
+        );
+      }
+    });
+  }
+}
+
+
+
+
+
+
+function edditqustion(sl_no) {
+
+  $.post(
+    "eddit/edditqustion.php",
+    {
+      sl_no
+    },
+    function (data, status) {
+     
+      $(".panel-heading").html("Eddit Qustion");
+      $(".panel-body").html(data);
+    }
+  );
+}

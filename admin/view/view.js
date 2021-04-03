@@ -84,3 +84,47 @@ function viewfile() {
   
   });
 }
+
+
+function viewbooks() {
+  $.post("view/viewtablebook.php", {
+
+
+  }, function (data, status) {
+    // close the popup
+
+    $(".panel-heading").html("view File Format");
+    $(".panel-body").html(data);
+  
+  });
+}
+
+
+
+
+function viewsubc() {
+  $.post("view/viewtablesubc.php", {
+
+    
+  }, function (data, status) {
+   
+
+    $(".panel-heading").html("view  course");
+    $(".panel-body").html(data);
+  
+  });
+}
+
+
+function viewqustions() {
+  $.post("view/viewtableque.php", {
+
+    
+  }, function (data, status) {
+   
+
+    $(".panel-heading").html("view  Questions");
+    $(".panel-body").html(data);
+  
+  });
+}

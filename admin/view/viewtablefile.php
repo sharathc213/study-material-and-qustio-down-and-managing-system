@@ -60,7 +60,7 @@ $data = '   <div class="table-responsive">
                        </td>
                        <td> 
                                      
-                       <button class="btn-danger" onclick="deletefile('.$sl_no.')">
+                     <button class="btn-danger" onclick="deletefile('.$sl_no.')">
                        
                           <i class="fa fa-trash-o"></i> Delete
                       

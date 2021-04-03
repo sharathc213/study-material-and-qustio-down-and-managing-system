@@ -6,7 +6,9 @@ if (!isset($_SESSION['admin'])  || !isset($_SESSION['username'])) {
 
     echo "<script>window.open('../../index.php#login','_self')</script>";
 } else {
+ 
     $username = $_SESSION['username'];
+
 
 ?>
 <script src="./js/jquery.min.js"></script>
@@ -15,7 +17,7 @@ if (!isset($_SESSION['admin'])  || !isset($_SESSION['username'])) {
 <script src="./eddit/eddit.js"></script>
 
     <script>
-       viewadmin();
+       viewsubc();
     </script>
     <div class="row">
         <div class="col-lg-12">

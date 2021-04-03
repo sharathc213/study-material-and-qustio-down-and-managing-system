@@ -33,6 +33,7 @@ body {
 
 .navbar-left {
     float: left;
+   
 }
 
 .navbar-right {
@@ -109,6 +110,7 @@ body {
 .sidebar .sidebar-nav.navbar-collapse {
     padding-right: 0;
     padding-left: 0;
+  
 }
 
 .sidebar .sidebar-search {

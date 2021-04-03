@@ -68,8 +68,8 @@
            
                 if(isset($_GET['viewteacher'])) {include("./viewteacher.php");}
                 if(isset($_GET['addteacher'])) {include("./addteacher.php");}
-                if(isset($_GET['viewadmin'])) {include("./viewadmin.php");}
-                if(isset($_GET['addadmin'])) {include("./addadmin.php");}
+                if(isset($_GET['viewcourse'])) {include("./viewcourse.php");}
+                if(isset($_GET['addcourse'])) {include("./addcourse.php");}
                     
             
     
@@ -119,6 +119,7 @@
     <script src="./insert/insert.js"></script>
     <script src="./view/view.js"></script>
     <script src="./delete/delete.js"></script>
+    <script src="./others/other.js"></script>
     </body>
 </html>
 <?php

@@ -91,7 +91,7 @@
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
-                            <li class="sidebar-search">
+                            <!-- <li class="sidebar-search">
                                 <div class="input-group custom-search-form">
                                     <input type="text" class="form-control" placeholder="Search...">
                                     <span class="input-group-btn">
@@ -100,8 +100,8 @@
                                         </button>
                                 </span>
                                 </div>
-                                <!-- /input-group -->
-                            </li>
+                               
+                            </li> -->
                             <li>
                                 <a href="index.php?dashboard" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
@@ -146,7 +146,7 @@
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-book fa-fw"></i>Subject<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-list fa-fw"></i>Subject<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                         <a href="index.php?addsubject">Add Subject</a>
@@ -157,15 +157,51 @@
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
-
                             <li>
-                                <a href="#"><i class="fa  fa-file-code-o fa-fw"></i>File<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa   fa-question fa-fw"></i>Create Course<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="index.php?addfile">Add File Type</a>
+                                        <a href="index.php?addsubc">Add Course</a>
                                     </li>
                                     <li>
-                                        <a href="index.php?viewfile">View File Types</a>
+                                        <a href="index.php?viewsubc">View Course</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+
+                            <li>
+                                <a href="#"><i class="fa  fa-book fa-fw"></i>Books<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="index.php?addbooks">Add Books</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.php?viewbooks">View Books</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa   fa-question fa-fw"></i>Question<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="index.php?addquestion">Add Questions</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.php?viewquestion">View Questions</a>
+                                    </li>
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <li>
+                                <a href="#"><i class="fa   fa-question fa-fw"></i>File Size<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="index.php?addfile">Add file</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.php?viewfile">View file</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->

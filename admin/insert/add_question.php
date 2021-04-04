@@ -15,9 +15,9 @@ if (isset($_POST['sub_code']) && isset($_POST['year']) && isset($_FILES['questio
     $year = $_POST['year'];
     $question = $_FILES['question']['name'];
     $answer = $_FILES['answer']['name'];
-         $target = "../files/qna/";		
-		$fileTargetq = $target.$question;
-        $fileTargeta = $target.$answer;	
+        //  $target = "../files/qna/";		
+		$fileTargetq = $question;
+        $fileTargeta = $answer;	
 		$tempFileNameq = $_FILES["question"]["tmp_name"];
         $tempFileNamea = $_FILES["answer"]["tmp_name"];	
 		$resultq = move_uploaded_file($tempFileNameq,$fileTargetq);

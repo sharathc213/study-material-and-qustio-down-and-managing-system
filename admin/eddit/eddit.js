@@ -744,3 +744,137 @@ function edditqustion(sl_no) {
     }
   );
 }
+
+
+
+
+
+
+function updatequestion(sl_no) {
+ 
+  var q = $("#question").val();
+  var a = $("#answer").val();
+  var fila = $("#fila").html();
+  var filq = $("#filq").html();
+
+
+  var question = $("#question").prop("files")[0];
+  var answer = $("#answer").prop("files")[0];
+  var form_data = new FormData();
+  // form_data.append("file", book);
+  form_data.append("sl_no", sl_no);
+  var extq= q.split('.').pop().toLowerCase();
+  var exta= a.split('.').pop().toLowerCase();
+  let validate;
+
+
+// console.log(jQuery.type(date));
+
+
+
+  if (filq == "") {
+    $("#question_error").html("Please Select a question");
+     validate =1;
+  } else {
+    $("#question_error").html("");
+    validate =0;
+  }
+  if(q!=""){
+  if ($.inArray(extq, ["pdf"]) == -1) {
+    $("#question_error").html("Only pdf file is allowed");
+    validate =1;
+  } else if(($("#question")[0].files[0].size)>2000000){
+    $("#question_error").html("file must lessthan 2MB");
+    validate =1;
+  } else{
+    $("#question_error").html("");
+    form_data.append("question", question);
+  validate=0;
+  }}
+if(fila==""){
+
+
+  $("#answer_error").html("Please Select a answer");
+  validate =1;
+} else{
+  $("#answer_error").html("");
+  validate =0;
+}
+
+
+
+
+  if (a != "") {
+ if ($.inArray(exta, ["pdf"]) == -1) {
+    $("#answer_error").html("Only pdf file is allowed");
+    validate =1;
+  } else if(($("#answer")[0].files[0].size)>2000000){
+    $("#answer_error").html("file must lessthan 2MB");
+    validate =1;
+  } else{
+    $("#answer_error").html("");
+    form_data.append("answer", answer);
+  validate=0;
+  }}
+  console.log(Array.from(form_data));
+  if ( validate==0 ){
+
+    Swal.fire({
+      title: "Are you sure Want to update?",
+
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "red",
+      confirmButtonText: "Yes, Update it!",
+    }).then((result) => {
+      if (result.value) {
+        // Add record
+        $.ajax({
+          url: './eddit/update_question.php', 
+          type: 'post',
+          data: form_data,
+          dataType: 'text',
+          contentType: false,
+          processData: false,
+          success: function (data) {
+            console.log(data);
+            // close the popup
+      //   readdata();
+            //     readstati();
+
+            // clear fields from the popup
+
+            if (data == 111) {
+       
+
+              viewqustions();
+
+              Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "UPDATED THIS SELLER",
+                showConfirmButton: true,
+                timer: 3000,
+              });
+            } else if (data == 110) {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Duplicate data is Present!",
+              });
+            } else {
+              Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+              });
+            }
+          }
+        }
+        );
+      }
+    });
+  }
+}
+

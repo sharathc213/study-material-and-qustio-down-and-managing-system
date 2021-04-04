@@ -8,14 +8,15 @@ $sl_no=$_POST['sl_no'];
 
 
                         
-        $get_book = "select * from book where sl_no='$sl_no'";
-        $run_book = mysqli_query($con,$get_book);
-        $row_book = mysqli_fetch_array($run_book);
+        $get_q = "select * from qustion where sl_no='$sl_no'";
+        $run_q = mysqli_query($con,$get_q);
+        $row_q = mysqli_fetch_array($run_q);
 
-        $book_name = $row_book['book_name'];
-        $location = $row_book['location'];
+        $date = $row_q['date'];
+        $locationq = $row_q['location'];
+        $locationa = $row_q['answer_location'];
  
-        $subject_code = $row_book['subject_code'];
+        $subject_code = $row_q['subject_code'];
         $get_sub2 = "select * from subject where subject_code='$subject_code' ";
         $run_sub2 = mysqli_query($con, $get_sub2);
         $row_sub2 = mysqli_fetch_array($run_sub2);
@@ -27,7 +28,7 @@ $sl_no=$_POST['sl_no'];
     <form role="form" enctype="multipart/form-data" id="addbook" >
     <div class="form-group">
         <label>Subject</label>
-        <select class="form-control" id="update_sub_code">';
+        <select disabled class="form-control" id="sub_code">';
         $data .= "    <option selected value=".$subject_code.">".$sub_name2." (".$subject_code.")</option>";
        
 
@@ -44,26 +45,34 @@ $sl_no=$_POST['sl_no'];
                 $data .= "<option value='$sub_code' >$sub_name ($sub_code)</option>";
                
             }   
-            $data .='    </select>
-        <span class="help-block" id="update_sub_code_error"></span>
-    </div>
-    <div class="form-group">
-        <label>Book Name</label>
-        <input class="form-control" id="update_book_name" style="text-transform:uppercase" value='.$book_name.'>
-        <span class="help-block" id="update_book_name_error"></span>
-    </div>
-    <div class="form-group">
-        <label>Book (in PDF format)</label>
-        <input type="file" id="update_book" class="form-control" >
-        <br>
-        <span id="fil">'.$location.'</span><button type="button" class="btn btn-primary" onclick="view();">View</button>
-        <span class="help-block" id="update_book_error"></span>
-    </div>
+            $data .='   
+    
+
+</select>
+                                <span class="help-block" id="sub_code_error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Year</label>
+                                <input type="text" disabled class="form-control" id="year" value="'.$date.'" style="text-transform:uppercase">
+                                <span class="help-block" id="year_error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Question (in PDF format)</label>
+                                <input type="file" id="question" class="form-control" >
+                                <span id="filq">'.$locationq.'</span><button type="button" class="btn btn-primary" onclick="view();">View</button>
+                                <span class="help-block" id="question_error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Answer (in PDF format)</label>
+                                <input type="file" id="answer" class="form-control" >
+                                <span id="fila">'.$locationa.'</span><button type="button" class="btn btn-primary" onclick="view();">View</button>
+                                <span class="help-block" id="answer_error"></span>
+                            </div>
 
 
-    <button type="button" class="btn btn-primary" onclick="updatebook('.$sl_no.');">update Book</button>
-   
-</form>
+                            <button type="button" class="btn btn-primary" onclick="updatequestion('.$sl_no.');">Update</button>
+ 
+                        </form>
    ';
 
      echo $data;

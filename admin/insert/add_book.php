@@ -14,8 +14,8 @@ if (isset($_POST['sub_code']) && isset($_POST['book_name']) && isset($_FILES['fi
     $sub_code = $_POST['sub_code'];
     $book_name = $_POST['book_name'];
     $fileName = $_FILES['file']['name'];
-         $target = "../files/books/";		
-		$fileTarget = $target.$fileName;	
+        //  $target = "../files/books/";		
+		$fileTarget = $fileName;	
 		$tempFileName = $_FILES["file"]["tmp_name"];	
 		$result1 = move_uploaded_file($tempFileName,$fileTarget);
     if($result1){

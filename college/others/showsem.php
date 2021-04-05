@@ -22,7 +22,7 @@ if (isset($_POST['course_code'])&&isset($_POST['college_code'])) {
                         <form role="form">
                             <div class="form-group">
                                 <label>Course</label>
-                                <select class="form-control" id="course_compination" style="text-transform:uppercase">
+                                <select class="form-control" onchange="viewcom(`'.$college_code.'`);" id="course_compination" style="text-transform:uppercase">
                                     <option disabled selected>Please Select a Compination</option>';
                                 
                            
@@ -34,10 +34,12 @@ while ($row_com = mysqli_fetch_array($run_com)) {
 
     $course_name = $row_course['course_name'];
 
-    $course_code = $row_course['course_code'];
+    $course_code = $row_com['course_code'];
+
+    $com_code = $row_com['compination_code'];
 
     $data .= '
-<option value=' . $course_code . ' >' . $course_name . ' (' . $course_code . ')</option>';
+<option value=' . $com_code . ' >' . $course_name . ' (' . $com_code . ')</option>';
 }
 
 $data .= '</select>
@@ -53,7 +55,7 @@ $data .= '</select>
             </div>
             <!-- /.panel-body -->
         </div>
-    $data .="        <button type="button" class="btn btn-primary" onclick="add_course($course_year,`$college_code`,`$code`);">Insert Course</button>
+     
    ';
     echo $data;
 }

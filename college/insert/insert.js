@@ -329,3 +329,47 @@ for (i=1; i <=j; i++) {
     );
   }
 }
+
+
+
+
+function add_cour(college_code,com) {
+
+ 
+    $.post(
+      "./insert/add_cour.php",
+      {
+        
+        college_code,
+        com,
+      },
+      function (data, status) {
+        console.log(data);
+        if (data == 111) {
+      
+
+
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "NEW COURSE IS ADDED",
+            showConfirmButton: true,
+          });
+        } else if (data == 110) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Duplicate Data Is Fount!",
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
+        }
+      }
+    );
+  }
+
+

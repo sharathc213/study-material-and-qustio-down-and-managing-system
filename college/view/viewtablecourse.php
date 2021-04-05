@@ -12,7 +12,7 @@ $get_course="SELECT  c.compination_code,s.course_code, s.sem_1_sub_1, s.sem_1_su
 , s.sem_2_sub_5, s.sem_3_sub_1, s.sem_3_sub_2, s.sem_3_sub_3, s.sem_3_sub_4, s.sem_3_sub_5
 , s.sem_4_sub_1, s.sem_4_sub_2, s.sem_4_sub_3, s.sem_4_sub_4, s.sem_4_sub_5, s.sem_5_sub_1
 , s.sem_5_sub_2, s.sem_5_sub_3, s.sem_5_sub_4, s.sem_5_sub_5, s.sem_6_sub_1, s.sem_6_sub_2
-, s.sem_6_sub_3, s.sem_6_sub_4, s.sem_6_sub_5 FROM subject_course s INNER JOIN college_compination c on 
+, s.sem_6_sub_3, s.sem_6_sub_4, s.sem_6_sub_5,c.sl_no FROM subject_course s INNER JOIN college_compination c on 
 c.compination_code = s.compination_code WHERE c.college_code='$college_code'";
 
 
@@ -62,7 +62,7 @@ $data = '   <div class="table-responsive">
         <th>sem 6 sub 4</th>
         <th>sem 6 sub 5</th>
       
-        <th>Eddit</th>
+       
         <th>Delete</th>
     </tr>
 </thead>
@@ -103,20 +103,12 @@ $data = '   <div class="table-responsive">
                            
                           
                             
-               $data .= "              <td> 
-                                     
-                            <button class='btn-warning' onclick='edditteacher()'>
-                            
-                               <i class='fa fa-pencil'></i> Eddit
-                           
-                            </button> 
-                            
-                       </td>
+               $data .= '             
                        <td> 
                                      
-                       <button class='btn-danger' onclick='deleteteacher()'>
+                       <button class="btn-danger" onclick="deletecour('.$row_course['sl_no'].',`'.$college_code.'`);">
                        
-                          <i class='fa fa-trash-o'></i> Delete
+                          <i class="fa fa-trash-o"></i> Delete
                       
                        </button> 
                        
@@ -124,7 +116,7 @@ $data = '   <div class="table-responsive">
                             
                             
                            
-                        </tr><!-- tr finish --></div>  ";
+                        </tr><!-- tr finish --></div>  ';
     
     }
 

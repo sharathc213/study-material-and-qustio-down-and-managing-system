@@ -130,14 +130,14 @@
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="fa fas fa-users"></i> Qustion<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fas fa-users"></i> Subject<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="index.php?addteacher">Add Qustion</a>
+                                        <a href="index.php?addsub">Assign subject</a>
                                     </li>
                                   
                                     <li>
-                                        <a href="index.php?viewteacher">View Qustion</a>
+                                        <a href="index.php?viewsub">View Subject</a>
                                     </li>
                                   
                                 </ul>

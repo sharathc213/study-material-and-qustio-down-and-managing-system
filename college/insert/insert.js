@@ -372,4 +372,59 @@ function add_cour(college_code,com) {
     );
   }
 
+  function add_teachersub() {
+    var teacher_code=$("#teacher_name").val();
+    var sub=$("#subject").val();
+
+    if (teacher_code==null) {
+      $("#teacher_name_error").html("Please select a Teacher");
+    } else {
+      $("#teacher_name_error").html("");
+    }
+
+    if (sub==null) {
+      $("#sub_error").html("Please select a subject");
+    } else {
+      $("#sub_error").html("");
+    }
+ if(teacher_code!=null && sub!=null){
+    $.post(
+      "./insert/add_teachersub.php",
+      {
+        
+        teacher_code,
+        sub
+      },
+      function (data, status) {
+        console.log(data);
+        if (data == 111) {
+      
+          $("#teacher_name").prop('selectedIndex',0);
+          $("#Course_name").prop('selectedIndex',0);
+          $(".sub_sec").html("");
+
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "NEW SUBJECT IS ADDED",
+            showConfirmButton: true,
+          });
+        } else if (data == 110) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Duplicate Data Is Fount!",
+          });
+        } else {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Something went wrong!",
+          });
+        }
+      }
+    );
+  }
+
+  }
 

@@ -27,3 +27,21 @@ function viewsem(course_code,college_code) {
     });
   }
   
+
+
+  function viewsub(cou_code,college_code) {
+  
+
+    $.post("others/showsub.php", {
+       cou_code,
+       college_code
+  
+    }, function (data, status) {
+      // close the popup
+  
+
+      $(".sub_sec").html(data);
+    
+    });
+  }
+  

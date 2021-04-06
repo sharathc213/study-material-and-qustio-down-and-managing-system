@@ -25,3 +25,16 @@ function viewcourse(college_code) {
   
   });
 }
+
+function viewteachersub(teacher_code,college_code) {
+  $.post("view/viewtableteachersub.php", {
+    teacher_code,
+    college_code
+  }, function (data, status) {
+   
+
+   
+    $(".table_sec").html(data);
+  
+  });
+}

@@ -70,6 +70,8 @@
                 if(isset($_GET['addteacher'])) {include("./addteacher.php");}
                 if(isset($_GET['viewcourse'])) {include("./viewcourse.php");}
                 if(isset($_GET['addcourse'])) {include("./addcourse.php");}
+                if(isset($_GET['viewsub'])) {include("./viewsubject.php");}
+                if(isset($_GET['addsub'])) {include("./addsubject.php");}
                     
             
     

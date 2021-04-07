@@ -15,10 +15,11 @@ if ( isset($_POST['sl_no'])) {
     $resulta=false;
     $resultq=false;	
     $check =222;
+    $target = "../files/qna/";	
     if( isset($_FILES['question']['name'])){
 
         $question = $_FILES['question']['name']; 
-        $fileTargetq = $question; 
+        $fileTargetq = $target.$question; 
         $tempFileNameq = $_FILES["question"]["tmp_name"];
         $resultq = move_uploaded_file($tempFileNameq,$fileTargetq);
     }
@@ -29,7 +30,7 @@ if ( isset($_POST['sl_no'])) {
     $answer = $_FILES['answer']['name'];
         	
 	
-        $fileTargeta = $answer;	
+        $fileTargeta = $target.$answer;	
 	
         $tempFileNamea = $_FILES["answer"]["tmp_name"];	
 		
@@ -38,7 +39,7 @@ if ( isset($_POST['sl_no'])) {
     if($resultq){
        
 
-        $query1 = "update qustion set location='$fileTargetq' where sl_no= $sl_no";
+        $query1 = "update qustion set location='$question' where sl_no= $sl_no";
                 if (!$result2 = mysqli_query($con, $query1)) {
                     exit(mysqli_error());
                     echo "some thing is wrong";
@@ -55,7 +56,7 @@ if ( isset($_POST['sl_no'])) {
     if($resulta){
        
 
-        $query2 = "update qustion set answer_location='$fileTargeta' where sl_no= $sl_no";
+        $query2 = "update qustion set answer_location='$answer' where sl_no= $sl_no";
                 if (!$result3 = mysqli_query($con, $query2)) {
                     exit(mysqli_error());
                     echo "some thing is wrong";

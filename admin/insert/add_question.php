@@ -15,9 +15,9 @@ if (isset($_POST['sub_code']) && isset($_POST['year']) && isset($_FILES['questio
     $year = $_POST['year'];
     $question = $_FILES['question']['name'];
     $answer = $_FILES['answer']['name'];
-        //  $target = "../files/qna/";		
-		$fileTargetq = $question;
-        $fileTargeta = $answer;	
+         $target = "../files/qna/";		
+		$fileTargetq = $target.$question;
+        $fileTargeta = $target.$answer;	
 		$tempFileNameq = $_FILES["question"]["tmp_name"];
         $tempFileNamea = $_FILES["answer"]["tmp_name"];	
 		$resultq = move_uploaded_file($tempFileNameq,$fileTargetq);
@@ -34,7 +34,7 @@ if (isset($_POST['sub_code']) && isset($_POST['year']) && isset($_FILES['questio
 
 
 
-        $query = "INSERT INTO qustion(subject_code, date,location,answer_location) VALUES('$sub_code','$year','$fileTargetq','$fileTargeta')";
+        $query = "INSERT INTO qustion(subject_code, date,location,answer_location) VALUES('$sub_code','$year','$question','$answer')";
         if (!$result = mysqli_query($con, $query)) {
             exit(mysqli_error());
             echo "some thing is wrong";

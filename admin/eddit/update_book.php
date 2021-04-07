@@ -16,8 +16,8 @@ if (isset($_POST['sub_code']) && isset($_POST['book_name']) && isset($_POST['sl_
     $result1 = false;
     if (isset($_FILES['file']['name'])){
     $fileName = $_FILES['file']['name'];
-     		
-		$fileTarget = $fileName;	
+    $target = "../files/books/";	
+		$fileTarget = $target.$fileName;	
 		$tempFileName = $_FILES["file"]["tmp_name"];
         	
 		$result1 = move_uploaded_file($tempFileName,$fileTarget);
@@ -27,7 +27,7 @@ if (isset($_POST['sub_code']) && isset($_POST['book_name']) && isset($_POST['sl_
     // $subject = "Welcome To StudentCorner";
 
 
-    $check = "select * from book where book_name='$book_name' and sl_no!='$sl_no'";
+    $check = "select * from book where book_name='$fileName' and sl_no!='$sl_no'";
     $result_check = mysqli_query($con, $check);
     if (mysqli_num_rows($result_check) == 0) {
 
@@ -40,7 +40,7 @@ if (isset($_POST['sub_code']) && isset($_POST['book_name']) && isset($_POST['sl_
             echo "some thing is wrong";
         } else {
             if($result1){
-                $query1 = "update book set location='$fileTarget' where sl_no= $sl_no";
+                $query1 = "update book set location='$fileName' where sl_no= $sl_no";
                 if (!$result2 = mysqli_query($con, $query1)) {
                     exit(mysqli_error());
                     echo "some thing is wrong";

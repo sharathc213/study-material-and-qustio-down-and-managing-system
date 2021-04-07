@@ -4,7 +4,7 @@
 <?php
 
 
-if (isset($_POST['sub_code']) && isset($_POST['book_name']) && isset($_FILES['file']['name'])) {
+if (isset($_POST['sub_code']) && isset($_POST['teacher_code']) && isset($_FILES['filedata']['name']) && isset($_POST['type_code']) && isset($_POST['filedesc'])) {
   
 
     // include Database connection file 
@@ -12,8 +12,10 @@ if (isset($_POST['sub_code']) && isset($_POST['book_name']) && isset($_FILES['fi
 
 
     $sub_code = $_POST['sub_code'];
-    $book_name = $_POST['book_name'];
-    $fileName = $_FILES['file']['name'];
+    $teacher_code = $_POST['teacher_code'];
+    $type_code = $_POST['type_code'];
+    $filedesc = $_POST['filedesc'];
+    $fileName = $_FILES['filedata']['name'];
          $target = "../files/books/";		
 		$fileTarget = $target.$fileName;	
 		$tempFileName = $_FILES["file"]["tmp_name"];	
@@ -30,7 +32,7 @@ if (isset($_POST['sub_code']) && isset($_POST['book_name']) && isset($_FILES['fi
 
 
 
-        $query = "INSERT INTO book(subject_code, book_name,location) VALUES('$sub_code','$book_name','$fileName')";
+        $query = "INSERT INTO book(subject_code, book_name,location) VALUES('$sub_code','$book_name','$fileTarget')";
         if (!$result = mysqli_query($con, $query)) {
             exit(mysqli_error());
             echo "some thing is wrong";

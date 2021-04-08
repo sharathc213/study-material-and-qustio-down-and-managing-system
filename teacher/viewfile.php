@@ -14,6 +14,10 @@ if (!isset($_SESSION['teacher'])  || !isset($_SESSION['username'])) {
     
 
 ?>
+<script src="./js/jquery.min.js"></script>
+
+<script src="./view/view.js"></script>
+<script src="./eddit/eddit.js"></script>
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header"></h1>
@@ -25,7 +29,7 @@ if (!isset($_SESSION['teacher'])  || !isset($_SESSION['username'])) {
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
-                Add file
+                View file
             </div>
             <div class="panel-body">
                 <div class="row">
@@ -33,7 +37,7 @@ if (!isset($_SESSION['teacher'])  || !isset($_SESSION['username'])) {
                         <form role="form">
                             <div class="form-group">
                                 <label>Subject</label>
-                                <select class="form-control" id="Course_name" style='text-transform:uppercase' onchange="viewtype(this.value,'<?php echo  $teacher_code; ?>')">
+                                <select class="form-control" id="Course_name" style='text-transform:uppercase' onchange="viewtypev(this.value,'<?php echo  $teacher_code; ?>')">
                                     <option disabled selected>Please Select a Subject</option>
                                 
                                 <?php

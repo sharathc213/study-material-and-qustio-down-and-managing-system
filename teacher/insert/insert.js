@@ -521,7 +521,7 @@ console.log(filedesc);
         console.log(data);
         if (data == 111) {
        
-          $("#course_name").prop("selectedIndex", 0);
+          $("#course_name2").prop("selectedIndex", 0);
           $(".type_section").html();
           $(".file_section").html();
        

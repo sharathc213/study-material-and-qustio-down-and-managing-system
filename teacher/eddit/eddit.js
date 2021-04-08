@@ -1,43 +1,123 @@
-function edditteacher(college_code,teacher_code) {
+function edditfile(sl_no) {
   // Add User ID to the hidden field for furture usage
 
   $.post(
-    "eddit/edditteacher.php",
+    "eddit/edditfile.php",
     {
-      teacher_code,
-      college_code
+      sl_no,
     },
     function (data, status) {
       // PARSE json data
-    
-      $(".panel-heading").html("Eddit teacher");
+
+      $(".panel-heading").html("Eddit file");
       $(".panel-body").html(data);
     }
   );
   // Open modal popup
 }
 
-
-
-function updateteacher(college_code,teacher_code) {
+function updatefile(sl_no,type_code) {
+  console.log("hai");
   // get values
-  var teacher_name = $("#update_teacher_name").val();
- 
+  var fileudat = $("#fileudata").val();
+  var desc = $("#update_disc").val();
+  var checkfile = $("#checkfile").html();
 
+  var fileudata = $("#fileudata").prop("files")[0];
+  var ext = fileudat.split(".").pop().toLowerCase();
 
+  var form_data = new FormData();
 
-  if (teacher_name == "") {
-    $("#update_teacher_name_error").html(
-      "Please enter a teacher name"
-    );
+  form_data.append("type_code", type_code);
+  form_data.append("sl_no", sl_no);
+
+  if (desc == "") {
+    $("#update_disc_error").html("Please Add about the file");
   } else {
-    $("#update_teacher_name_error").html("");
+    $("#update_disc_error").html("");
+    form_data.append("filedesc", desc);
   }
 
-  if (
-    teacher_name != ""
+  // form_data.append("file", book);
+  if (checkfile == "") {
+    if (fileudat == "") {
+      $("#filedata_error").html("Please Select a file");
+    } else {
+      $("#filedata_error").html("");
+    }}
+    if(fileudat!=""){
+      switch (type_code) {
+        case 1:
+          // pdf
+          if ($.inArray(ext, ["pdf"]) == -1) {
+            $("#filedata_error").html("Only pdf file is allowed");
+          } else if ($("#fileudata")[0].files[0].size > 2000000) {
+            $("#filedata_error").html("file must lessthan 2MB");
+          } else {
+            $("#filedata_error").html("");
+            form_data.append("filedata", fileudata);
+            var validate = "ok";
+          }
+          break;
+        case 2:
+          // image
+          if ($.inArray(ext, ["gif", "png", "jpg", "jpeg"]) == -1) {
+            $("#filedata_error").html("Only Image file is allowed");
+          } else if ($("#fileudata")[0].files[0].size > 2000000) {
+            $("#filedata_error").html("file must lessthan 2MB");
+          } else {
+            $("#filedata_error").html("");
+            form_data.append("filedata", fileudata);
+            var validate = "ok";
+          }
+          break;
+        case 3:
+          // vedio
+          if (
+            $.inArray(ext, ["flv", "avi", "mov", "mkv", "mp4", "3gp"]) == -1
+          ) {
+            $("#filedata_error").html("Only Vedio file is allowed");
+          } else if ($("#fileudata")[0].files[0].size > 2000000) {
+            $("#filedata_error").html("file must lessthan 2MB");
+          } else {
+            $("#filedata_error").html("");
+            form_data.append("filedata", fileudata);
+            var validate = "ok";
+          }
+          break;
+        case 4:
+          // ppt
+          if ($.inArray(ext, ["ppt", "pptx", "pptpng", "pptjpeg"]) == -1) {
+            $("#filedata_error").html("Only PowerPoint file is allowed");
+          } else if ($("#fileudata")[0].files[0].size > 2000000) {
+            $("#filedata_error").html("file must lessthan 2MB");
+          } else {
+            $("#filedata_error").html("");
+            form_data.append("filedata", fileudata);
+            var validate = "ok";
+          }
+          break;
+        case 5:
+          //word
+          if ($.inArray(ext, ["docx", "docm", "dot", "dotx"]) == -1) {
+            $("#filedata_error").html("Only ms word file is allowed");
+          } else if ($("#fileudata")[0].files[0].size > 2000000) {
+            $("#filedata_error").html("file must lessthan 2MB");
+          } else {
+            $("#filedata_error").html("");
+            form_data.append("filedata", fileudata);
+            var validate = "ok";
+          }
+          break;
 
-  ) {
+        // code block
+      }
+    }
+  
+
+  // console.log(jQuery.type(date));
+
+  if (desc != "") {
     Swal.fire({
       title: "Are you sure Want to update?",
 
@@ -49,31 +129,25 @@ function updateteacher(college_code,teacher_code) {
     }).then((result) => {
       if (result.value) {
         // Add record
-        $.post(
-          "eddit/update_teacher.php",
-          {
-            teacher_name ,
-            teacher_code
-          },
-          function (data, status) {
+        $.ajax({
+          url: './eddit/updatefile.php', 
+          type: 'post',
+          data: form_data,
+          dataType: 'text',
+          contentType: false,
+          processData: false,
+          success: function (data) {
             console.log(data);
             // close the popup
-
-            // read records again
-            //   readRecords();
-            //   readdata();
+      //   readdata();
             //     readstati();
 
             // clear fields from the popup
 
             if (data == 111) {
-              $("#update_teacher_name").val("");
        
-              $("#update_teacher_email").val("");
-        
 
-              viewteacher(college_code);
-             
+              // viewqustions();
 
               Swal.fire({
                 position: "center",
@@ -96,129 +170,9 @@ function updateteacher(college_code,teacher_code) {
               });
             }
           }
+        }
         );
       }
     });
   }
-
-  //  else{
-  //     alert("Please Fill All the Fields");
-
-  //  }
 }
-
-
-
-
-
-
-
-
-function edditadmin(sl_no) {
-  // Add User ID to the hidden field for furture usage
-
-  $.post(
-    "eddit/edditadmin.php",
-    {
-      sl_no: sl_no,
-    },
-    function (data, status) {
-      // PARSE json data
-    
-      $(".panel-heading").html("Eddit admin");
-      $(".panel-body").html(data);
-    }
-  );
-  // Open modal popup
-}
-
-
-
-function updateadmin(sl_no) {
-  // get values
-  var admin_name = $("#update_admin_name").val();
-
-
-
-
-  if (admin_name == "") {
-    $("#update_admin_name_error").html(
-      "Please enter a admin name"
-    );
-  } else {
-    $("#update_admin_name_error").html("");
-  }
-
-  if (
-    admin_name != "" 
-
-  ) {
-    Swal.fire({
-      title: "Are you sure Want to update?",
-
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "red",
-      confirmButtonText: "Yes, Update it!",
-    }).then((result) => {
-      if (result.value) {
-        // Add record
-        $.post(
-          "eddit/update_admin.php",
-          {
-            admin_name ,
-         
-            sl_no 
-          },
-          function (data, status) {
-            console.log(data);
-            // close the popup
-
-            // read records again
-            //   readRecords();
-            //   readdata();
-            //     readstati();
-
-            // clear fields from the popup
-
-            if (data == 111) {
-              $("#update_admin_name").val("");
-              $("#update_admin_code").val("");
-           
-        
-
-              viewadmin();
-
-              Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "UPDATED THIS SELLER",
-                showConfirmButton: true,
-                timer: 3000,
-              });
-            } else if (data == 110) {
-              Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Duplicate data is Present!",
-              });
-            } else {
-              Swal.fire({
-                icon: "error",
-                title: "Oops...",
-                text: "Something went wrong!",
-              });
-            }
-          }
-        );
-      }
-    });
-  }
-
-  //  else{
-  //     alert("Please Fill All the Fields");
-
-  //  }
-}
-

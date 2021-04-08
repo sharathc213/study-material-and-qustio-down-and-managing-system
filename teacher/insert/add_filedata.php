@@ -16,9 +16,9 @@ if (isset($_POST['sub_code']) && isset($_POST['teacher_code']) && isset($_FILES[
     $type_code = $_POST['type_code'];
     $filedesc = $_POST['filedesc'];
     $fileName = $_FILES['filedata']['name'];
-         $target = "../files/books/";		
+         $target = "../file/";		
 		$fileTarget = $target.$fileName;	
-		$tempFileName = $_FILES["file"]["tmp_name"];	
+		$tempFileName = $_FILES["filedata"]["tmp_name"];	
 		$result1 = move_uploaded_file($tempFileName,$fileTarget);
     if($result1){
        
@@ -26,13 +26,13 @@ if (isset($_POST['sub_code']) && isset($_POST['teacher_code']) && isset($_FILES[
     // $subject = "Welcome To StudentCorner";
 
 
-    $check = "select * from book where book_name='$book_name'";
+    $check = "select * from files where file_name='$fileName' and file_type=$type_code and teacher_code=$teacher_code";
     $result_check = mysqli_query($con, $check);
     if (mysqli_num_rows($result_check) == 0) {
 
 
 
-        $query = "INSERT INTO book(subject_code, book_name,location) VALUES('$sub_code','$book_name','$fileTarget')";
+        $query = "INSERT INTO files(subject_code,file_name,file_type,status,teacher_code,disc) VALUES('$sub_code','$fileName',$type_code,'0',$teacher_code,'$filedesc')";
         if (!$result = mysqli_query($con, $query)) {
             exit(mysqli_error());
             echo "some thing is wrong";

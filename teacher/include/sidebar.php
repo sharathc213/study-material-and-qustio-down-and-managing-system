@@ -91,21 +91,11 @@
                 <div class="navbar-default sidebar" role="navigation">
                     <div class="sidebar-nav navbar-collapse">
                         <ul class="nav" id="side-menu">
-                            <li class="sidebar-search">
-                                <div class="input-group custom-search-form">
-                                    <input type="text" class="form-control" placeholder="Search...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-primary" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                </span>
-                                </div>
-                                <!-- /input-group -->
-                            </li>
+                   
                             <li>
                                 <a href="index.php?dashboard" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="#"><i class="fa fas fa-users"></i> Teacher<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
@@ -115,21 +105,21 @@
                                         <a href="index.php?viewteacher">View Teachers</a>
                                     </li>
                                 </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
+                               /.nav-second-level
+                            </li> -->
                             <li>
-                                <a href="#"><i class="fa fa-sitemap fa-fw"></i>Course<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-sitemap fa-fw"></i>File<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
-                                        <a href="index.php?addcourse">Add Course</a>
+                                        <a href="index.php?addfile">Add File</a>
                                     </li>
                                     <li>
-                                        <a href="index.php?viewcourse">View Course</a>
+                                        <a href="index.php?viewfile">View File</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="#"><i class="fa fas fa-users"></i> Subject<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
@@ -141,8 +131,8 @@
                                     </li>
                                   
                                 </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
+                               
+                            </li> -->
                           
                            
                         </ul>

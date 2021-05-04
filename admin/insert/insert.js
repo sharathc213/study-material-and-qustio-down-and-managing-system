@@ -617,7 +617,7 @@ function add_subc(course_year,course_code) {
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "NEW ADMIN IS ADDED",
+              title: "NEW COURSE IS ADDED",
               showConfirmButton: true,
             });
           } else if (data == 110) {
@@ -725,7 +725,7 @@ function add_subc(course_year,course_code) {
             Swal.fire({
               position: "center",
               icon: "success",
-              title: "NEW FILE  IS ADDED",
+              title: "NEW QUESTION  IS ADDED",
               showConfirmButton: true,
             });
           } else if (data == 110) {

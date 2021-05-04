@@ -59,13 +59,15 @@ $sl_no=$_POST['sl_no'];
                             <div class="form-group">
                                 <label>Question (in PDF format)</label>
                                 <input type="file" id="question" class="form-control" >
-                                <span id="filq">'.$locationq.'</span><button type="button" class="btn btn-primary" onclick="view();">View</button>
+                                <span id="filq">'.$locationq.'</span><br><button type="button" class="btn btn-primary" onclick="verifyq(`'.$locationq.'`);">View</button>
+                                <button class="btn btn-primary" type="button"><a style="text-decoration:none;color:white;" href="./files/qna/'.$locationq.'" download>Downloade</a></button>
                                 <span class="help-block" id="question_error"></span>
                             </div>
                             <div class="form-group">
                                 <label>Answer (in PDF format)</label>
                                 <input type="file" id="answer" class="form-control" >
-                                <span id="fila">'.$locationa.'</span><button type="button" class="btn btn-primary" onclick="view();">View</button>
+                                <span id="fila">'.$locationa.'</span><br><button type="button" class="btn btn-primary" onclick="verifya(`'.$locationa.'`);">View</button>
+                                <button class="btn btn-primary" type="button"><a style="text-decoration:none;color:white;" href="./files/qna/'.$locationa.'" download>Downloade</a></button>
                                 <span class="help-block" id="answer_error"></span>
                             </div>
 

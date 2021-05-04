@@ -355,7 +355,7 @@
         <script src="assets/js/main.js"></script>
         <script src="assets/js/login.js"></script>
         <script>
-         
+         window.location.replace("/studentscorner/#hero");
         </script>
 
 

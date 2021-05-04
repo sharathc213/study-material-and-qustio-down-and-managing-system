@@ -53,7 +53,7 @@ function add_teacher(college_code) {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "NEW TEACHER IS ADDED",
+            title: "NEW COLLEGE IS ADDED",
             showConfirmButton: true,
           });
         } else if (data == 110) {
@@ -309,7 +309,7 @@ for (i=1; i <=j; i++) {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "NEW ADMIN IS ADDED",
+            title: "NEW COURSE IS ADDED",
             showConfirmButton: true,
           });
         } else if (data == 110) {
@@ -406,7 +406,7 @@ function add_cour(college_code,com) {
           Swal.fire({
             position: "center",
             icon: "success",
-            title: "NEW SUBJECT IS ADDED",
+            title: "NEW SUBJECT IS ASSIGNED",
             showConfirmButton: true,
           });
         } else if (data == 110) {

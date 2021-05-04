@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="http://localhost/studentscorner/">STUDENTS CORNER</a>
+                    <a class="navbar-brand" href="http://localhost/studentscorner/">ADMIN'S PANEL</a>
                 </div>
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -11,26 +11,26 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
+<!-- 
                 <ul class="nav navbar-nav navbar-left navbar-top-links">
                     <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
-                </ul>
+                </ul> -->
 
                 <ul class="nav navbar-right navbar-top-links">
-                    <li class="dropdown navbar-inverse">
+                    <!-- <li class="dropdown navbar-inverse">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu dropdown-alerts">
                             <li>
                                 <a href="#">
-                                    <div>
-                                        <i class="fa fa-comment fa-fw"></i> New Comment
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
+                                    <div> -->
+                                        <!-- <i class="fa fa-comment fa-fw"></i> New Comment -->
+                                        <!-- <span class="pull-right text-muted small">4 minutes ago</span> -->
+                                    <!-- </div>
                                 </a>
-                            </li>
-                            <li>
+                            </li> -->
+                            <!-- <li>
                                 <a href="#">
                                     <div>
                                         <i class="fa fa-twitter fa-fw"></i> 3 New Followers
@@ -38,48 +38,41 @@
                                     </div>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#">
+                            <li> -->
+                                <!-- <a href="#">
                                     <div>
                                         <i class="fa fa-envelope fa-fw"></i> Message Sent
                                         <span class="pull-right text-muted small">4 minutes ago</span>
                                     </div>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-tasks fa-fw"></i> New Task
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
+                            </li> -->
+                      
+                            <!-- <li>
                                 <a href="#">
                                     <div>
                                         <i class="fa fa-upload fa-fw"></i> Server Rebooted
                                         <span class="pull-right text-muted small">4 minutes ago</span>
                                     </div>
                                 </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
+                            </li> -->
+                            <!-- <li class="divider"></li> -->
+                            <!-- <li>
                                 <a class="text-center" href="#">
                                     <strong>See All Alerts</strong>
                                     <i class="fa fa-angle-right"></i>
                                 </a>
-                            </li>
-                        </ul>
-                    </li>
+                            </li> -->
+                        <!-- </ul>
+                    </li> -->
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-user fa-fw"></i><?php echo $_SESSION['username']; ?><b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                            <li><a href="index.php?changepass"><i class="fa fa-user fa-fw"></i> Change Password</a>
                             </li>
-                            <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                            </li>
+                            <!-- <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                            </li> -->
                             <li class="divider"></li>
                             <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                             </li>
@@ -158,7 +151,7 @@
                                 <!-- /.nav-second-level -->
                             </li>
                             <li>
-                                <a href="#"><i class="fa   fa-question fa-fw"></i>Create Course<span class="fa arrow"></span></a>
+                                <a href="#"><i class="fa fa-laptop fa-fw"></i>Create Course<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
                                         <a href="index.php?addsubc">Add Course</a>
@@ -194,7 +187,7 @@
                                 </ul>
                                 <!-- /.nav-second-level -->
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="#"><i class="fa   fa-question fa-fw"></i>File Size<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                     <li>
@@ -204,8 +197,21 @@
                                         <a href="index.php?viewfile">View file</a>
                                     </li>
                                 </ul>
-                                <!-- /.nav-second-level -->
+                          
+                            </li> -->
+                              <li>
+                                <a href="index.php?viewdata"><i class="fa   fa-file fa-fw"></i>File</a>
+                                <!-- <ul class="nav nav-second-level">
+                                    <li>
+                                        <a href="index.php?addfile">Add file</a>
+                                    </li>
+                                    <li>
+                                        <a href="index.php?viewfile">View file</a>
+                                    </li>
+                                </ul> -->
+                          
                             </li>
+                    
                     
                            
                         </ul>

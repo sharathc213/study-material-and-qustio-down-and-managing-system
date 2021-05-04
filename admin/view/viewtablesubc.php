@@ -99,12 +99,17 @@ $data = '   <div class="table-responsive">
                             <td>  ".$row_cou['course_name']." </td>";
 
                             for ($n=2;$n<32;$n++) {
-                                $get_sub="select * from subject where subject_code='".$row_course[$n]."'";
+                                $value=$row_course[$n];
+                             if($value!=""){
+                                $get_sub="select * from subject where subject_code='".$value."'";
                                 $run_sub = mysqli_query($con,$get_sub);
                                 $row_sub=mysqli_fetch_array($run_sub);
                                $sub= $row_sub['subject_name'];
                                 $data .= "<td> ".$sub." </td>";
-                               
+                             }
+                             else{
+                                $data .= "<td><center> - </center></td>"; 
+                             }
                               }
                            
                           

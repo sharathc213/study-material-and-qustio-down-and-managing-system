@@ -65,7 +65,7 @@
                 <div class="container-fluid">
                 <?php
               
-           
+                if(isset($_GET['dashboard'])) {include("./dashboard.php");}
                 if(isset($_GET['viewcolleages'])) {include("./viewcolleages.php");}
                 if(isset($_GET['addcolleages'])) {include("./addcolleages.php");}
                 if(isset($_GET['viewadmin'])) {include("./viewadmin.php");}
@@ -83,6 +83,8 @@
                 if(isset($_GET['viewquestion'])) {include("./viewquestion.php");}
                 if(isset($_GET['addsubc'])) {include("./addsubc.php");}
                 if(isset($_GET['viewsubc'])) {include("./viewsubc.php");}
+                if(isset($_GET['viewdata'])) {include("./viewfilesdata.php");}
+                if(isset($_GET['changepass'])) {include("./changepass.php");}
                     
             
     
@@ -133,6 +135,7 @@
     <script src="./view/view.js"></script>
     <script src="./delete/delete.js"></script>
     <script src="./others/other.js"></script>
+    <script src="./eddit/eddit.js"></script>
     </body>
 </html>
 <?php

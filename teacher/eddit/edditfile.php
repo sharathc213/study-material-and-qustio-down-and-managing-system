@@ -26,8 +26,22 @@ $sl_no=$_POST['sl_no'];
     <div class="form-group">
         <label>File</label>
         <input class="form-control" id="fileudata"  type="file">
-        <span id="checkfile">'.$file_name.'</span>
-        <p class="help-block"  id="filedata_error"></p>
+        <span id="checkfile">'.$file_name.'</span><br>';
+        if($type_code==1){
+            $data .= ' <button type="button" class="btn btn-primary" onclick="verifypdf(`'.$file_name.'`);" >view</button>';  
+        }else if($type_code==2){
+            $data .= '  <img src="./file/'.$file_name.'"/>';
+        }else if($type_code==3){
+            $data .= '  <video width="320" height="240" controls>
+           <source src="./file/'.$file_name.'" type="video/mp4">
+  <source src="./file/'.$file_name.'" type="video/ogg">
+  Your browser does not support the video tag.
+</video>';
+        }
+            $data .= '<button class="btn btn-primary" type="button"><a style="text-decoration:none;color:white;" href="./file/'.$file_name.'" download>Downloade</a></button>';
+        
+
+        $data .= '      <p class="help-block"  id="filedata_error"></p>
     </div>
     <div class="form-group" >
         <label>description</label>

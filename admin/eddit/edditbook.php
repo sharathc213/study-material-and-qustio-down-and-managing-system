@@ -59,7 +59,8 @@ $sl_no=$_POST['sl_no'];
         <label>Book (in PDF format)</label>
         <input type="file" id="update_book" class="form-control" >
         <br>
-        <span id="fil">'.$location.'</span><button type="button" class="btn btn-primary" onclick="view();">View</button>
+        <span id="fil">'.$location.'</span><br/><button type="button" class="btn btn-primary" onclick="verifybook(`'.$location.'`);">View</button>
+        <button class="btn btn-primary" type="button"><a style="text-decoration:none;color:white;" href="./files/books/'.$location.'" download>Downloade</a></button>
         <span class="help-block" id="update_book_error"></span>
     </div>
 

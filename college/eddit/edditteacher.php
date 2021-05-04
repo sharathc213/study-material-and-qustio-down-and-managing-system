@@ -19,6 +19,7 @@ if( isset($_POST['teacher_code']) && isset($_POST['college_code']) ){
             $teacher_name = $row_teacher['teacher_name'];
             $teacher_code = $row_teacher['teacher_code'];
             $teacher_email = $row_teacher['email'];
+            $teacher_password = $row_teacher['password'];
 
     
     	$data = " 
@@ -34,6 +35,11 @@ if( isset($_POST['teacher_code']) && isset($_POST['college_code']) ){
             <input id='update_teacher_email' class='form-control' disabled  id='teacher_email'  value='$teacher_email'/>
        
         </div>
+        <div class='form-group' >
+        <label>teacher Password</label>
+        <input id='update_teacher_email' class='form-control' disabled  id='teacher_password'  value='$teacher_password'/>
+   
+    </div>
 
 
         <button type='button' class='btn btn-primary' onclick='updateteacher(`$college_code`,$teacher_code);'>Update teacher</button>

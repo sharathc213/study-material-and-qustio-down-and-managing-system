@@ -38,3 +38,11 @@ function viewteachersub(teacher_code,college_code) {
   
   });
 }
+
+
+function verifypdf(path){
+  console.log("hai");
+ 
+  window.open("./file/pdfreader.php?pdf="+path, "_blank");
+    // window.location.href = '../admin/cv/'+path;
+   };

@@ -70,6 +70,8 @@
                 // if(isset($_GET['addteacher'])) {include("./addteacher.php");}
                 if(isset($_GET['viewfile'])) {include("./viewfile.php");}
                 if(isset($_GET['addfile'])) {include("./addfile.php");}
+                if(isset($_GET['changepass'])) {include("./changepass.php");}
+                if(isset($_GET['dashboard'])) {include("./dashboard.php");}
                 // if(isset($_GET['viewsub'])) {include("./viewsubject.php");}
                 // if(isset($_GET['addsub'])) {include("./addsubject.php");}
                     
@@ -122,6 +124,7 @@
     <script src="./view/view.js"></script>
     <script src="./delete/delete.js"></script>
     <script src="./others/other.js"></script>
+    <script src="./eddit/eddit.js"></script>
     </body>
 </html>
 <?php

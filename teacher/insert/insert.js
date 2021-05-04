@@ -458,8 +458,8 @@ console.log(filedesc);
       if ($.inArray(ext, ['flv','avi','mov','mkv','mp4','3gp']) == -1) {
         $("#filedata_error").html("Only Vedio file is allowed");
      
-      } else if ($("#filedata")[0].files[0].size > 2000000) {
-        $("#filedata_error").html("file must lessthan 2MB");
+      } else if ($("#filedata")[0].files[0].size > 50000000) {
+        $("#filedata_error").html("file must lessthan 50MB");
     
       }else {
         $("#filedata_error").html("");

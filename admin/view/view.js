@@ -128,3 +128,60 @@ function viewqustions() {
   
   });
 }
+
+
+function viewfiledata(subject_code) {
+  $.post("view/viewtabledata.php", {
+
+    subject_code
+  }, function (data, status) {
+   
+
+    $(".panel-heading").html("view  Files");
+    $(".panel-body-table").html(data);
+  
+  });
+}
+
+
+
+
+function viewdata(sl_no) {
+
+  $.post("view/viewdatadetails.php", {
+
+    sl_no,
+ 
+  }, function (data, status) {
+   
+
+    $(".panel-heading").html("view  Files");
+    $(".panel-body").html(data);
+  
+  });
+}
+
+function verifypdf(path){
+
+ 
+  window.open("./files/pdfreader.php?pdf="+path, "_blank");
+    // window.location.href = '../admin/cv/'+path;
+   };
+   function verifybook(path){
+
+ 
+    window.open("./files/pdfreaderbook.php?book="+path, "_blank");
+      // window.location.href = '../admin/cv/'+path;
+     };
+     function verifyq(path){
+
+ 
+      window.open("./files/pdfreaderq.php?q="+path, "_blank");
+        // window.location.href = '../admin/cv/'+path;
+       };
+       function verifya(path){
+
+ 
+        window.open("./files/pdfreadera.php?a="+path, "_blank");
+          // window.location.href = '../admin/cv/'+path;
+         };

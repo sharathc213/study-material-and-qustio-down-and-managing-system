@@ -30,13 +30,13 @@ $sl_no=$_POST['sl_no'];
         if($type_code==1){
             $data .= ' <button type="button" class="btn btn-primary" onclick="verifypdf(`'.$file_name.'`);" >view</button>';  
         }else if($type_code==2){
-            $data .= '  <img src="./file/'.$file_name.'"/>';
+            $data .= '  <img src="./file/'.$file_name.'"/><br>';
         }else if($type_code==3){
             $data .= '  <video width="320" height="240" controls>
            <source src="./file/'.$file_name.'" type="video/mp4">
   <source src="./file/'.$file_name.'" type="video/ogg">
   Your browser does not support the video tag.
-</video>';
+</video><br>';
         }
             $data .= '<button class="btn btn-primary" type="button"><a style="text-decoration:none;color:white;" href="./file/'.$file_name.'" download>Downloade</a></button>';
         

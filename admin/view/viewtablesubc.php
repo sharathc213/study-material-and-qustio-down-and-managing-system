@@ -116,7 +116,7 @@ $data = '   <div class="table-responsive">
                             
                $data .= "              <td> 
                                      
-                            <button class='btn-warning' onclick='edditteacher()'>
+                            <button class='btn-warning' onclick='edditsc(".$row_course['compination_code'].",`".$row_course[1]."`)'>
                             
                                <i class='fa fa-pencil'></i> Eddit
                            
@@ -125,7 +125,7 @@ $data = '   <div class="table-responsive">
                        </td>
                        <td> 
                                      
-                       <button class='btn-danger' onclick='deleteteacher()'>
+                       <button class='btn-danger' onclick='deletesc(".$row_course['compination_code'].",`".$row_course[1]."`)'>
                        
                           <i class='fa fa-trash-o'></i> Delete
                       

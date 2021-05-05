@@ -46,7 +46,7 @@
                         <span>Home</span></a></li>
 
                 <li id="meterials" onclick="display('meterial')"><a href="#meterial"><i class="bx bx-file-blank"></i>
-                        <span>Meterials</span></a></li>
+                        <span>Materials</span></a></li>
                 <li id="logins" onclick="display('login')"><a href="#login"><i class="bx bx-user"></i> <span>Login</span></a></li>
 
 

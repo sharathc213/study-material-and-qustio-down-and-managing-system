@@ -132,10 +132,9 @@ year,sub,meterial
               // window.location.href = '../admin/cv/'+path;
              };
 
-
              function verifyvedio(path){
-
+console.log("hai");
  
-            
-         
+              window.open("./teacher/file/vedio.php?vedio="+path, "_blank");
+                // window.location.href = '../admin/cv/'+path;
                };

@@ -42,12 +42,12 @@
 
         <nav class="nav-menu">
             <ul>
-                <li onclick="display('hero')" class="active"><a href="#hero"><i class="bx bx-home"></i>
+                <li id="heros" onclick="display('hero')" class="active"><a href="#hero"><i class="bx bx-home"></i>
                         <span>Home</span></a></li>
 
-                <li onclick="display('meterial')"><a href="#meterial"><i class="bx bx-file-blank"></i>
+                <li id="meterials" onclick="display('meterial')"><a href="#meterial"><i class="bx bx-file-blank"></i>
                         <span>Meterials</span></a></li>
-                <li onclick="display('login')"><a href="#login"><i class="bx bx-user"></i> <span>Login</span></a></li>
+                <li id="logins" onclick="display('login')"><a href="#login"><i class="bx bx-user"></i> <span>Login</span></a></li>
 
 
             </ul>
@@ -60,7 +60,7 @@
         <div class="container" data-aos="zoom-in" data-aos-delay="100">
             <h1>Student Corner</h1>
             <p>Every Thing You Want is Here</p>
-            <p>You Can Downloade<span class="typed" data-typed-items=" Qustions, Answer Key, Study Meterials, Text Book"></span></p>
+            <p>You Can Downloade<span class="typed" data-typed-items=" Questions, Answers, Study Materials, Text Books"></span></p>
             <div class="social-links">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -81,7 +81,7 @@
             <div class="container">
              
                 <div class="section-title">
-                    <h2>Meterials</h2>
+                    <h2>Materials</h2>
 
                     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">

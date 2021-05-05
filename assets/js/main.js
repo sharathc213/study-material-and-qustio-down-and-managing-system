@@ -11,15 +11,19 @@ function display(name) {
   other.addClass("display");
   section.removeClass("display");
 
-    //  var url = window.location.hash;
-    // var id = url.substring(url.lastIndexOf('#') + 1);
-    // console.log(url);
 };
 
 
 
-
-
+window.addEventListener('popstate', function (event) {
+	// Log the state data to the console
+  var url = window.location.hash;
+  var id = url.substring(url.lastIndexOf('#') + 1);
+  $("#heros").removeClass("active");
+  $("#meterials").removeClass("active");
+  $("#logins").removeClass("active");
+  $("#"+id+"s").addClass("active");
+});
 !(function ($) {
   "use strict";
 

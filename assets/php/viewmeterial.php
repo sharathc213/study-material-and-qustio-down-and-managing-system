@@ -14,12 +14,12 @@ $get_cat="select * from course_cat";
 // Design initial table header 
 $data = '<div class="form-group row">
 <div class="col-md-3">
-<label >Select Your Meterial Type :</label>
+<label >Select Your Material Type :</label>
 </div>
 <div class="col-md-9">
 <select class="form-control"  onchange="viewchange(this.value,`'.$sub.'`,0);" >
  
-<option selected disabled>Please Select Your Meterial type</option>
+<option selected disabled>Please Select Your Material type</option>
 
 
                         

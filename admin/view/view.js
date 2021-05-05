@@ -185,3 +185,6 @@ function verifypdf(path){
         window.open("./files/pdfreadera.php?a="+path, "_blank");
           // window.location.href = '../admin/cv/'+path;
          };
+
+
+       

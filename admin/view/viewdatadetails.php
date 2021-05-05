@@ -33,8 +33,8 @@ $sl_no=$_POST['sl_no'];
             $data .= '  <img src="../teacher/file/'.$file_name.'"/>';
         }else if($type_code==3){
             $data .= '  <video width="320" height="240" controls>
-           <source src="src="../teacher/file/'.$file_name.'" type="video/mp4">
-  <source src="src="../teacher/file/'.$file_name.'" type="video/ogg">
+           <source src="../teacher/file/'.$file_name.'" type="video/mp4">
+  <source src="../teacher/file/'.$file_name.'" type="video/ogg">
   Your browser does not support the video tag.
 </video>';
         }
